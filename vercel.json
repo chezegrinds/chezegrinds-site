@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/easter", "dest": "/easter.html" },
+    { "src": "/academy", "dest": "/academy.html" },
+    { "src": "/one-to-one", "dest": "/one-to-one.html" },
+    { "src": "/services", "dest": "/services.html" },
+    { "src": "/", "dest": "/index.html" }
+  ]
 }
