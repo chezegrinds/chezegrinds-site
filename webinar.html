@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Live Workshop — Cheze Grinds</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;font-size:16px;line-height:1.7;color:#333;background:#fff}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --navy:#102233;--navy2:#0d1d2b;
+  --green:#0F766E;--green2:#0a5e57;--greenlight:#e8f5f4;
+  --cream:#f1eeda;--creambg:#fdfcf8;
+  --grey:#f7f7f7;--grey2:#f0f0f0;
+  --text:#2c2c2c;--textmid:#555;--textmute:#888;
+  --border:#e0e0e0;--yellow:#f59e0b;--red:#dc2626;
+  --max:1100px;--pad:80px;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.section{padding:var(--pad) 0}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.2;color:var(--navy)}
+h1{font-size:clamp(28px,5vw,54px)}
+h2{font-size:clamp(22px,3.5vw,38px)}
+h3{font-size:clamp(16px,2.5vw,21px)}
+
+/* NAV */
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:999;background:#fff;box-shadow:0 1px 0 var(--border),0 4px 16px rgba(0,0,0,.06)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{cursor:pointer;display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:14px;font-weight:700;color:var(--text);padding:8px 13px;border-radius:3px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--navy);background:var(--grey)}
+.nav-drop{position:relative}
+.nav-drop-btn{font-size:14px;font-weight:700;color:var(--text);padding:8px 13px;border-radius:3px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .15s,background .15s;user-select:none}
+.nav-drop-btn:hover{color:var(--navy);background:var(--grey)}
+.nav-drop-btn svg{width:11px;height:11px;transition:transform .2s}
+.nav-dd{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:4px;min-width:200px;box-shadow:0 8px 28px rgba(0,0,0,.12);opacity:0;pointer-events:none;visibility:hidden;transition:opacity .18s,visibility .18s;z-index:1000}
+.nav-drop:hover .nav-dd{opacity:1;pointer-events:all;visibility:visible}
+.nav-dd a{display:block;padding:12px 18px;font-size:14px;font-weight:700;color:var(--text);border-bottom:1px solid var(--grey2);transition:background .12s}
+.nav-dd a:last-child{border-bottom:none}
+.nav-dd a:hover{background:var(--grey)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#fff;z-index:998;overflow-y:auto;padding:18px 28px 40px;flex-direction:column}
+.mob.open{display:flex}
+.mob a{font-weight:700;font-size:16px;color:var(--text);padding:13px 0;border-bottom:1px solid var(--grey2)}
+.mob a:hover{color:var(--navy)}
+.mob .mm-cta{margin-top:18px;background:var(--green);color:#fff;text-align:center;padding:16px;border-radius:4px;font-size:16px;font-weight:700}
+.btn{display:inline-block;padding:10px 20px;border-radius:4px;font-family:'Lato',sans-serif;font-weight:700;font-size:14px;cursor:pointer;border:2px solid transparent;transition:all .18s}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-green:hover{background:var(--green2)}
+.urgency-bar{background:var(--red);padding:11px 0;text-align:center}
+.urgency-bar p{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.urgency-bar span{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:3px;margin:0 4px}
+
+/* HERO */
+.hero{background:var(--navy);padding:70px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(15,118,110,.12) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(15,118,110,.07) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(15,118,110,.22);border:1px solid rgba(94,234,212,.35);color:#5eead4;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:6px 14px;border-radius:3px;margin-bottom:20px}
+.hero-badge::before{content:'🔴';font-size:10px}
+.hero h1{color:#fff;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:#5eead4}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.72);margin-bottom:10px;line-height:1.75;max-width:480px}
+.hero-date{display:flex;align-items:center;gap:10px;margin:20px 0 32px;color:rgba(255,255,255,.9)}
+.hero-date-pill{background:rgba(15,118,110,.3);border:1px solid rgba(94,234,212,.3);padding:8px 16px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5eead4}
+
+/* SIGNUP CARD */
+.signup-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.signup-card-top{background:var(--green);padding:22px 26px;text-align:center}
+.signup-card-top p{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.signup-card-top strong{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:#fff}
+.signup-card-body{padding:26px}
+.signup-card-body p{font-size:14px;color:var(--textmid);margin-bottom:18px;text-align:center}
+.form-field{margin-bottom:14px}
+.form-field input{width:100%;padding:14px 16px;border:2px solid var(--border);border-radius:4px;font-family:'Lato',sans-serif;font-size:15px;color:var(--text);transition:border-color .15s;outline:none}
+.form-field input:focus{border-color:var(--green)}
+.form-field input::placeholder{color:var(--textmute)}
+.btn-submit{width:100%;padding:16px;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;border:none;border-radius:4px;cursor:pointer;transition:background .18s,transform .18s;letter-spacing:.02em}
+.btn-submit:hover{background:var(--green2);transform:translateY(-1px)}
+.signup-note{font-size:12px;color:var(--textmute);text-align:center;margin-top:12px}
+.spots-left{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px;font-size:13px;font-weight:700;color:var(--red)}
+.spots-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* TRUST BAR */
+.trust-bar{background:var(--grey);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 0}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--textmid)}
+.trust-icon{width:32px;height:32px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-icon svg{width:15px;height:15px}
+
+/* WHAT YOU'LL LEARN */
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.learn-item{display:flex;gap:16px;align-items:flex-start;padding:24px;background:#fff;border:1px solid var(--border);border-radius:5px;border-left:4px solid var(--green)}
+.learn-num{width:36px;height:36px;flex-shrink:0;background:var(--navy);border-radius:50%;font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;color:#fff;display:flex;align-items:center;justify-content:center}
+.learn-item h4{font-size:16px;margin-bottom:5px;color:var(--navy)}
+.learn-item p{font-size:14px;color:var(--textmid);line-height:1.6}
+
+/* WHO IT'S FOR */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.who-card{padding:26px;border-radius:5px;border:1px solid var(--border)}
+.who-card.yes{background:#f0faf9;border-color:#0F766E}
+.who-card.no{background:#fef2f2;border-color:#fca5a5}
+.who-card h4{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.who-card ul{display:flex;flex-direction:column;gap:9px}
+.who-card ul li{font-size:14px;color:var(--textmid);display:flex;align-items:flex-start;gap:8px}
+.who-card ul li::before{flex-shrink:0;margin-top:3px}
+.who-card.yes ul li::before{content:'✓';color:var(--green);font-weight:700}
+.who-card.no ul li::before{content:'✗';color:var(--red);font-weight:700}
+
+/* TWO OFFERS */
+.offers-section{background:var(--grey);padding:var(--pad) 0}
+.offers-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.offer-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);display:flex;flex-direction:column}
+.offer-card.featured{border:2px solid var(--green);box-shadow:0 12px 40px rgba(15,118,110,.15)}
+.offer-top{padding:28px 28px 22px;background:var(--navy)}
+.offer-top.green{background:var(--green)}
+.offer-badge{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:12px}
+.offer-badge.hot{background:#f59e0b;color:#fff}
+.offer-top h3{color:#fff;font-size:20px;margin-bottom:8px}
+.offer-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:#fff;line-height:1}
+.offer-price-note{font-size:13px;color:rgba(255,255,255,.65);margin-top:4px}
+.offer-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.offer-desc{font-size:15px;color:var(--textmid);margin-bottom:22px;line-height:1.7}
+.offer-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1}
+.offer-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--textmid)}
+.tick{width:20px;height:20px;flex-shrink:0;margin-top:1px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.tick svg{width:9px;height:9px}
+.offer-btn{display:block;width:100%;padding:15px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;border-radius:4px;cursor:pointer;transition:all .18s;border:2px solid transparent}
+.offer-btn.green-btn{background:var(--green);color:#fff}
+.offer-btn.green-btn:hover{background:var(--green2)}
+.offer-btn.navy-btn{background:var(--navy);color:#fff}
+.offer-btn.navy-btn:hover{background:var(--navy2)}
+.offer-scarcity{text-align:center;margin-top:10px;font-size:12px;font-weight:700;color:var(--red)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:60px;align-items:center}
+.about-img-wrap{border-radius:8px;overflow:hidden;background:#dde3e9;height:380px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#96a5b0;font-size:14px;font-weight:700}
+.about-img-wrap svg{opacity:.3}
+.about-content .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.bq{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(16px,2.2vw,20px);color:var(--navy);line-height:1.5;border-left:4px solid var(--green);padding-left:18px;margin:22px 0}
+.stat-row{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+.stat-item strong{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:var(--green);display:block}
+.stat-item span{font-size:13px;color:var(--textmid);font-weight:700}
+
+/* TESTIMONIALS */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.rev-card{background:#fff;border:1px solid var(--border);border-radius:5px;padding:24px}
+.stars{display:flex;gap:3px;margin-bottom:10px}
+.star{width:14px;height:14px;background:var(--yellow);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.rev-text{font-size:14px;color:var(--textmid);font-style:italic;margin-bottom:14px;line-height:1.7}
+.rev-name{font-weight:700;font-size:14px;color:var(--navy)}
+.rev-det{font-size:12px;color:var(--textmute)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:0;margin-top:40px;max-width:720px;margin-left:auto;margin-right:auto}
+.faq-item{padding:20px 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-item h4{font-size:17px;margin-bottom:7px;color:var(--navy)}
+.faq-item p{font-size:15px;color:var(--textmid)}
+
+/* BOTTOM CTA */
+.bottom-cta{background:var(--navy);padding:72px 0;text-align:center;position:relative;overflow:hidden}
+.bottom-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(15,118,110,.12) 0%,transparent 70%);pointer-events:none}
+.bottom-cta h2{color:#fff;margin-bottom:12px;position:relative;z-index:1}
+.bottom-cta p{font-size:17px;color:rgba(255,255,255,.68);max-width:480px;margin:0 auto 32px;position:relative;z-index:1}
+.btn-cta-lg{display:inline-block;padding:18px 44px;background:var(--green);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;border-radius:4px;cursor:pointer;transition:all .18s;position:relative;z-index:1;border:none}
+.btn-cta-lg:hover{background:var(--green2);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#1a1a1a;padding:40px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:#fff}
+.foot-logo span{color:#5eead4}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.5);transition:color .15s}
+.foot-links a:hover{color:#fff}
+.foot-copy{font-size:13px;color:rgba(255,255,255,.35)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  :root{--pad:60px}
+  .hero-grid{grid-template-columns:1fr}
+  .signup-card{max-width:460px}
+  .learn-grid,.who-grid,.offers-grid{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-img-wrap{height:280px}
+  .stat-row{gap:20px}
+  .pain-grid{grid-template-columns:1fr 1fr!important}
+  .vid-grid{grid-template-columns:1fr!important}
+  .nav-links,.nav-drop,.btn-green.nav-cta{display:none}
+  .nav-right{display:none!important}
+  .ham{display:flex}
+}
+@media(max-width:580px){
+  .wrap{padding:0 18px}
+  .trust-inner{gap:20px}
+  .rev-grid{grid-template-columns:1fr}
+  .foot-inner{flex-direction:column;text-align:center}
+  .foot-links{justify-content:center}
+  .stat-row{flex-direction:column;gap:16px}
+  .pain-grid{grid-template-columns:1fr!important}
+}
+</style>
+
+<script>
+function toggleMenu(){document.getElementById('mob').classList.toggle('open');}
+function closeMenu(){document.getElementById('mob').classList.remove('open');}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:10px;"><img src="chezelogo.png" alt="Cheze Grinds" style="height:44px;width:44px;border-radius:50%;display:block;"><span style="font-family:Montserrat,sans-serif;font-weight:900;font-size:20px;color:#102233;letter-spacing:-0.02em;">Cheze Grinds</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">Our Services</a></li>
+      <li><a href="/easter">Easter Course</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.instagram.com/chezegrinds/" target="_blank" rel="noopener" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@chezegrinds" target="_blank" rel="noopener" title="TikTok" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="14" height="16" viewBox="0 0 24 27" fill="currentColor"><path d="M19.59 7.27a6.72 6.72 0 0 1-3.94-1.27v8.6a6.2 6.2 0 1 1-6.2-6.2c.34 0 .67.03 1 .08v3.43a2.85 2.85 0 1 0 1.97 2.69V.5h3.35a6.72 6.72 0 0 0 3.82 6.77z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1Agh1zfPnK/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="9" height="16" viewBox="0 0 10 18" fill="currentColor"><path d="M6.5 18V9.9h2.7l.4-3.1H6.5V4.9c0-.9.25-1.5 1.54-1.5H9.7V.62C9.38.58 8.35.5 7.16.5 4.76.5 3.1 2 3.1 4.7v2.1H.4v3.1h2.7V18z"/></svg>
+      </a>
+      <a href="/webinar" class="btn btn-green nav-cta">Free Workshop →</a>
+    </div>
+    <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob" id="mob">
+  <a href="/">Home</a>
+  <a href="/services">Our Services</a>
+  <a href="/easter">Easter Course</a>
+  <a href="/one-to-one">1 to 1 Support</a>
+  <a href="/webinar" class="mm-cta" onclick="closeMenu()">Reserve Free Workshop Spot</a>
+</div>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <p>🔴 Free Live Workshop — <span>Saturday 12 April, 6pm</span> — Starts in <span id="countdown">--:--:--</span></p>
+</div>
+
+<script>
+(function(){
+  const target = new Date('2026-04-12T17:00:00Z').getTime();
+  function update(){
+    const now = new Date().getTime();
+    const diff = target - now;
+    if(diff <= 0){
+      document.getElementById('countdown').textContent = 'LIVE NOW';
+      return;
+    }
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+    document.getElementById('countdown').textContent =
+      (d > 0 ? d + 'd ' : '') +
+      String(h).padStart(2,'0') + 'h ' +
+      String(m).padStart(2,'0') + 'm ' +
+      String(s).padStart(2,'0') + 's';
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge">Free Live Workshop</div>
+        <h1>How to <em>Jump 2+ Grades</em> in Leaving Cert Maths in 6 Weeks</h1>
+        <p class="hero-sub">A free 90-minute live session revealing exactly how students make massive grade jumps before the exams, and what's costing you marks right now.</p>
+        <div class="hero-date">
+          <div class="hero-date-pill">📅 Saturday 12 April — 6:00pm</div>
+          <div class="hero-date-pill">💻 Live on Zoom</div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="signup-card">
+          <div class="signup-card-top">
+            <p>Reserve Your Free Spot</p>
+            <strong>Saturday 12 April, 6pm</strong>
+          </div>
+          <div class="signup-card-body">
+            <p>Enter your details below to secure your place</p>
+            <div class="form-field">
+              <input type="text" id="name" placeholder="Your first name" required />
+            </div>
+            <div class="form-field">
+              <input type="email" id="email" placeholder="Your email address" required />
+            </div>
+            <button class="btn-submit" id="submitBtn" onclick="submitForm()">Reserve My Free Spot →</button>
+            <p class="signup-note">100% free. No credit card. Zoom link sent to your inbox.</p>
+            <div class="spots-left">
+              <div class="spots-dot"></div>
+              Workshop starts in <strong id="countdown2">--:--:--</strong>
+            </div>
+
+<script>
+(function(){
+  const target = new Date('2026-04-12T17:00:00Z').getTime();
+  function update(){
+    const now = new Date().getTime();
+    const diff = target - now;
+    const el = document.getElementById('countdown2');
+    if(!el) return;
+    if(diff <= 0){ el.textContent = 'LIVE NOW'; return; }
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+    el.textContent = (d > 0 ? d + 'd ' : '') + String(h).padStart(2,'0') + 'h ' + String(m).padStart(2,'0') + 'm ' + String(s).padStart(2,'0') + 's';
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+
+<script>
+async function submitForm() {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const btn = document.getElementById('submitBtn');
+
+  if (!name || !email) {
+    alert('Please enter your name and email.');
+    return;
+  }
+
+  btn.textContent = 'Securing your spot...';
+  btn.disabled = true;
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbx0yDEWdNBAAQweFzHvfuAHy9vSaj-DZqSIBKP9iGIoxikVMGTVXVPBcJaKn3WBD9jRqg/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
+  } catch(err) {
+    // no-cors won't return readable response, proceed anyway
+  }
+
+  window.location.href = 'webinar-confirmed.html';
+}
+</script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span>110+ Active Students</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span>Proven Grade Improvements</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span>90-Minute Live Session</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>Higher Level Maths Specialist</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="section">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow" style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px">What You'll Learn</span>
+      <h2>In 90 Minutes, You'll Know Exactly How to Jump 2+ Grades</h2>
+      <p style="font-size:17px;color:var(--textmid);max-width:580px;margin:14px auto 0">This isn't a class. This is a roadmap to a completely different result in June.</p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-item">
+        <div class="learn-num">1</div>
+        <div>
+          <h4>The #1 Reason Students Drop Marks</h4>
+          <p>It's not what you think. Most students are losing marks on questions they actually know — we'll fix that in this session.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-num">2</div>
+        <div>
+          <h4>The Fastest Ways to Pick Up Marks on Paper 1 & 2</h4>
+          <p>The specific questions and techniques that return the highest marks per minute in the exam — and how to target them every time.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-num">3</div>
+        <div>
+          <h4>Real Student Case Study — 4 Grade Jump</h4>
+          <p>How one student went from an H6 to an H2 in their Leaving Cert — and the exact 3 things that made it happen.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-num">4</div>
+        <div>
+          <h4>Your 6-Week Grade Jump Plan</h4>
+          <p>Exactly what to focus on in the final weeks before your exams to maximise every mark available to you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section" style="background:var(--grey);padding:var(--pad) 0">
+  <div class="wrap">
+    <div class="center">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px">Is This For You?</span>
+      <h2>This Workshop Is Built For One Type of Student</h2>
+    </div>
+    <!-- PAIN POINTS -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;margin-bottom:44px" class="pain-grid">
+      <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 5px 5px 0;padding:20px">
+        <p style="font-size:15px;color:var(--textmid);line-height:1.6">😩 <strong style="color:var(--navy)">I study for hours</strong> and nothing actually sticks</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 5px 5px 0;padding:20px">
+        <p style="font-size:15px;color:var(--textmid);line-height:1.6">😰 <strong style="color:var(--navy)">I panic in the exam</strong> even when I know the material</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 5px 5px 0;padding:20px">
+        <p style="font-size:15px;color:var(--textmid);line-height:1.6">😟 <strong style="color:var(--navy)">I don't even know</strong> where to start with the paper</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 5px 5px 0;padding:20px">
+        <p style="font-size:15px;color:var(--textmid);line-height:1.6">😣 <strong style="color:var(--navy)">My mock results were terrible</strong> and exams are in 6 weeks</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 5px 5px 0;padding:20px">
+        <p style="font-size:15px;color:var(--textmid);line-height:1.6">😔 <strong style="color:var(--navy)">I'm behind</strong> and don't think I can catch up in time</p>
+      </div>
+      <div style="background:#f0faf9;border:2px solid var(--green);border-radius:5px;padding:20px;display:flex;align-items:center">
+        <p style="font-size:15px;color:var(--navy);line-height:1.6;font-family:'Montserrat',sans-serif;font-weight:800">🎯 I just want to <em style="font-style:normal;color:var(--green)">get into my course</em> without maths holding me back</p>
+      </div>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card yes">
+        <h4>✅ This is for you if...</h4>
+        <ul>
+          <li>You're sitting Leaving Cert Maths Higher Level this year</li>
+          <li>You want to jump 2+ grades before June</li>
+          <li>You know the material but panic and drop marks in exams</li>
+          <li>You're behind and need a clear plan to catch up fast</li>
+          <li>Maths is standing between you and the college course you want</li>
+          <li>You're serious about showing up and doing the work</li>
+        </ul>
+      </div>
+      <div class="who-card no">
+        <h4>❌ This is NOT for you if...</h4>
+        <ul>
+          <li>You're looking for someone to do the work for you</li>
+          <li>You want to coast to June and hope for the best</li>
+          <li>You're not willing to show up and implement</li>
+          <li>You've already given up on this year</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO OFFERS -->
+<section class="offers-section">
+  <div class="wrap">
+    <div class="center">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px">After the Workshop</span>
+      <h2>Two Ways to Keep Working With Me</h2>
+      <p style="font-size:17px;color:var(--textmid);max-width:580px;margin:14px auto 0">Both are built for the 6 weeks before your exams. Pick the level that's right for you.</p>
+    </div>
+    <div class="offers-grid">
+
+      <!-- ACADEMY -->
+      <div class="offer-card">
+        <div class="offer-top">
+          <div class="offer-badge">Option 1</div>
+          <h3>6-Week Revision Course</h3>
+          <div class="offer-price" style="font-size:22px;margin-top:8px">Revealed at the workshop</div>
+          <div class="offer-price-note">Full 6 weeks of structured revision</div>
+        </div>
+        <div class="offer-body">
+          <p class="offer-desc">Join the Cheze Elite Maths Academy for the final 6 weeks. Structured revision, weekly group classes, and a community of students working towards the same goal.</p>
+          <ul class="offer-list">
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>2× group maths classes per week</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Full curriculum revision — Paper 1 & 2</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Private student community access</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Resources and exam materials</li>
+          </ul>
+          <div style="background:var(--greenlight);border:1px solid var(--green);border-radius:4px;padding:14px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:var(--green)">Pricing revealed at the live workshop</div>
+        </div>
+      </div>
+
+      <!-- ELITE COHORT -->
+      <div class="offer-card featured">
+        <div class="offer-top green">
+          <div class="offer-badge hot">🔥 Most Popular</div>
+          <h3>Elite Exam Performance Cohort</h3>
+          <div class="offer-price" style="font-size:22px;margin-top:8px">Revealed at the workshop</div>
+          <div class="offer-price-note">6 weeks — max 30 students per cohort</div>
+        </div>
+        <div class="offer-body">
+          <p class="offer-desc">This isn't revision. This is exam performance training. A small, serious group built to walk into the exam hall and execute. Every session is past-paper based, timed, and broken down mark by mark.</p>
+          <ul class="offer-list">
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Past-paper sessions under exam conditions</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>High-value topic assassination each session</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Exam performance & learning coaching with Chisom</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Mindset & exam psychology built into every session</li>
+            <li><div class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg></div>Private WhatsApp group — 30 students max</li>
+          </ul>
+          <div style="background:rgba(15,118,110,.1);border:1px solid var(--green);border-radius:4px;padding:14px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:var(--green)">Pricing revealed at the live workshop</div>
+          <div class="offer-scarcity">⚡ Max 30 students per cohort — spots go fast</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT CHISOM -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap" style="background:#1a1a1a">
+        <img src="chisom.jpeg" alt="Chisom — Cheze Grinds" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;border-radius:8px" />
+      </div>
+      <div class="about-content">
+        <span class="eyebrow">Your Coach</span>
+        <h2>Hi, I'm Chisom — and I know exactly what it takes to jump grades in Leaving Cert Maths</h2>
+        <div class="bq">"Staying quiet about something that could genuinely change a student's result isn't being humble. It's a disservice."</div>
+        <p style="font-size:15px;color:var(--textmid);line-height:1.75">When I sat the Leaving Cert, I went from an H5 to an H1 in maths in a single year. I know what it feels like to be behind, to feel like the paper doesn't make sense, and to turn it all around. Since then I've helped students do the same thing in less time.</p>
+        <p style="font-size:15px;color:var(--textmid);line-height:1.75;margin-top:14px">I'm the founder of Cheze Elite Maths Academy, Ireland's performance-focused Leaving Cert Maths programme. I study the neuroscience of learning and exam performance so my students don't just know the material. They execute on the day.</p>
+        <div class="stat-row">
+          <div class="stat-item"><strong>110+</strong><span>Active Students</span></div>
+          <div class="stat-item"><strong>2+</strong><span>Grade Jumps Possible</span></div>
+          <div class="stat-item"><strong>6 Wks</strong><span>To Your Exams</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--grey);padding:var(--pad) 0">
+  <div class="wrap">
+    <div class="center">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px">Real Student Results</span>
+      <h2>Students Who Jumped 2+ Grades With Cheze</h2>
+      <p style="font-size:17px;color:var(--textmid);max-width:560px;margin:14px auto 0">These aren't outliers. This is what happens when students show up with the right system.</p>
+    </div>
+
+    <!-- VIDEO TESTIMONIALS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;align-items:start" class="vid-grid">
+      <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.07)">
+        <div style="position:relative;width:100%;padding-top:56.25%;background:#000;overflow:hidden">
+          <video controls style="position:absolute;top:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:100%">
+            <source src="testimonial1.mov" type="video/mp4">
+          </video>
+        </div>
+        <div style="padding:20px 22px">
+          <div class="stars" style="margin-bottom:8px"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p style="font-size:15px;color:var(--textmid);font-style:italic;line-height:1.7;margin-bottom:12px">"I failed my mocks and still walked out of the Leaving Cert with an H3. Cheze completely changed how I approached the exam."</p>
+          <div style="font-weight:700;font-size:14px;color:var(--navy)">Joseph</div>
+          <div style="font-size:12px;color:var(--textmute)">Failed Mocks to H3 · Leaving Cert 2025</div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.07)">
+        <div style="position:relative;width:100%;padding-top:56.25%;background:#000;overflow:hidden">
+          <video controls style="position:absolute;top:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:100%">
+            <source src="testimonial2.mov" type="video/mp4">
+          </video>
+        </div>
+        <div style="padding:20px 22px">
+          <div class="stars" style="margin-bottom:8px"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p style="font-size:15px;color:var(--textmid);font-style:italic;line-height:1.7;margin-bottom:12px">"Chisom put his heart and soul into the maths classes and helped me get that H1. Exam techniques and learning shortcuts that some teachers don't go through."</p>
+          <div style="font-weight:700;font-size:14px;color:var(--navy)">Linda</div>
+          <div style="font-size:12px;color:var(--textmute)">H3 to H1 · Leaving Cert 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT REVIEWS -->
+    <div class="rev-grid" style="margin-top:24px">
+      <div class="rev-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="rev-text">"100% helped me! I went from a H6 to a H2 in maths!"</p>
+        <div class="rev-name">Ava</div>
+        <div class="rev-det">H6 → H2 · HL Maths</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="rev-text">"Got a H1 in maths after a H4 in the mocks."</p>
+        <div class="rev-name">Euanie</div>
+        <div class="rev-det">H4 → H1 · HL Maths</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="rev-text">"Managed to get a H5 after getting a H8 in the mocks. Amazing grinds, really helped me get the grade I wanted."</p>
+        <div class="rev-name">Kinree</div>
+        <div class="rev-det">H8 Mocks → H5 · HL Maths</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="rev-text">"Your classes gave me the confidence to push for my first choice. I ended up with 578 points and my dream course."</p>
+        <div class="rev-name">Adam</div>
+        <div class="rev-det">578 Points · Dream Course · HL Maths</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <div class="center">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px">FAQ</span>
+      <h2>Questions Answered</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <h4>Is the workshop really free?</h4>
+        <p>Yes. Completely free. No catch. You show up, you learn, you leave with a plan. If you want to keep working with me after, there are two options — but there's no obligation.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What's the difference between the Academy and the Elite Cohort?</h4>
+        <p>The Academy is a 6-week revision course — we go through the curriculum together. The Elite Cohort is an exam performance programme. Every session is past-paper based, timed, and focused on performing on the day. It's a completely different product for a different type of student.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Why is the Elite Cohort limited to 30 students?</h4>
+        <p>Because I want to know every student in the room. Small numbers mean higher quality sessions, better accountability, and better results. Once 30 spots are filled, that cohort is closed.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I can't make it live?</h4>
+        <p>Register anyway. We'll let you know what's available for those who miss the live session.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is this only for certain grades?</h4>
+        <p>No. Whether you're sitting on a H4 wanting a H2, or a H3 pushing for a H1 — if you want to jump grades before June, this workshop is for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta" id="signup">
+  <div class="wrap">
+    <h2>Saturday 12 April — 6pm</h2>
+    <p>Free live workshop. 90 minutes. Walk away with a plan for the next 6 weeks.</p>
+    <button class="btn-cta-lg" onclick="window.scrollTo({top:0,behavior:'smooth'})">Reserve My Free Spot →</button>
+    <p style="font-size:13px;color:rgba(255,255,255,.4);margin-top:16px;position:relative;z-index:1">No credit card. Zoom link sent to your inbox after signup.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-logo">CHEZE <span>GRINDS</span></div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/academy">Academy</a>
+        <a href="/services">Services</a>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="foot-copy">© 2025 Cheze Grinds. Performance Training for Leaving Cert Maths.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

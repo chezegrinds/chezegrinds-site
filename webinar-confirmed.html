@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Cheze Grinds</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;font-size:16px;line-height:1.7;color:#333;background:#fff;min-height:100vh;display:flex;flex-direction:column}
+:root{
+  --navy:#102233;--navy2:#0d1d2b;
+  --green:#0F766E;--green2:#0a5e57;--greenlight:#e8f5f4;
+  --text:#2c2c2c;--textmid:#555;--textmute:#888;
+  --border:#e0e0e0;--yellow:#f59e0b;
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 28px}
+
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:999;background:#fff;box-shadow:0 1px 0 var(--border),0 4px 16px rgba(0,0,0,.06)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{cursor:pointer;display:flex;align-items:center}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:14px;font-weight:700;color:#2c2c2c;padding:8px 13px;border-radius:3px;transition:color .15s,background .15s;text-decoration:none}
+.nav-links a:hover{color:#102233;background:#f7f7f7}
+.nav-cta{margin-left:8px}
+.btn{display:inline-block;padding:10px 22px;border-radius:4px;font-family:'Lato',sans-serif;font-weight:700;font-size:14px;cursor:pointer;border:2px solid transparent;transition:all .18s;letter-spacing:.02em;text-decoration:none}
+.btn-green{background:#0F766E;color:#fff;border-color:#0F766E}
+.btn-green:hover{background:#0a5e57;border-color:#0a5e57;transform:translateY(-1px)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:#102233;border-radius:2px;transition:all .25s}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#fff;z-index:998;overflow-y:auto;padding:18px 28px 40px;flex-direction:column}
+.mob.open{display:flex}
+.mob a{font-weight:700;font-size:16px;color:#2c2c2c;padding:13px 0;border-bottom:1px solid #f0f0f0;text-decoration:none}
+.mob a:hover{color:#102233}
+.mob .mm-cta{margin-top:18px;background:#0F766E;color:#fff;text-align:center;padding:16px;border-radius:4px;font-size:16px;font-weight:700;border-bottom:none}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .btn-green.nav-cta{display:none}
+  .ham{display:flex}
+}
+
+/* HERO */
+.confirmed-hero{background:var(--navy);padding:80px 0;text-align:center;flex:1;display:flex;align-items:center;position:relative;overflow:hidden}
+.confirmed-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(15,118,110,.15) 0%,transparent 70%);pointer-events:none}
+.confirmed-inner{position:relative;z-index:1;width:100%}
+
+/* CHECKMARK ANIMATION */
+.check-wrap{width:90px;height:90px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) forwards}
+@keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+.check-wrap svg{width:42px;height:42px}
+
+.confirmed-badge{display:inline-block;background:rgba(15,118,110,.22);border:1px solid rgba(94,234,212,.35);color:#5eead4;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:6px 14px;border-radius:3px;margin-bottom:20px}
+.confirmed-hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,5vw,46px);color:#fff;line-height:1.15;margin-bottom:16px}
+.confirmed-hero h1 em{font-style:normal;color:#5eead4}
+.confirmed-hero p{font-size:17px;color:rgba(255,255,255,.72);max-width:480px;margin:0 auto 32px;line-height:1.75}
+
+/* DATE PILL */
+.date-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.date-pill{background:rgba(15,118,110,.3);border:1px solid rgba(94,234,212,.3);padding:9px 18px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5eead4}
+
+/* WHATSAPP BUTTON */
+.wa-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;padding:18px 36px;border-radius:6px;cursor:pointer;transition:all .18s;border:none;text-decoration:none}
+.wa-btn:hover{background:#1ebe5a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.wa-btn svg{width:26px;height:26px;flex-shrink:0}
+.wa-note{font-size:13px;color:rgba(255,255,255,.45);margin-top:14px}
+
+/* WHAT'S NEXT */
+.next-section{background:#fff;padding:64px 0}
+.next-section h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,3vw,28px);color:var(--navy);text-align:center;margin-bottom:36px}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:20px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-n{width:44px;height:44px;flex-shrink:0;background:var(--navy);border-radius:50%;font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;color:#fff;display:flex;align-items:center;justify-content:center}
+.step h4{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--navy);margin-bottom:4px}
+.step p{font-size:14px;color:var(--textmid);line-height:1.6}
+
+/* FOOTER */
+footer{background:#1a1a1a;padding:32px 0;text-align:center}
+.foot-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:#fff}
+.foot-logo span{color:#5eead4}
+.foot-copy{font-size:13px;color:rgba(255,255,255,.35);margin-top:6px}
+
+@media(max-width:580px){
+  .wrap{padding:0 18px}
+  .wa-btn{font-size:15px;padding:16px 24px}
+  .date-row{flex-direction:column;align-items:center}
+}
+</style>
+
+<script>
+function toggleMenu(){document.getElementById('mob').classList.toggle('open');}
+function closeMenu(){document.getElementById('mob').classList.remove('open');}
+</script>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:10px;"><img src="chezelogo.png" alt="Cheze Grinds" style="height:44px;width:44px;border-radius:50%;display:block;"><span style="font-family:Montserrat,sans-serif;font-weight:900;font-size:20px;color:#102233;letter-spacing:-0.02em;">Cheze Grinds</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">Our Services</a></li>
+      <li><a href="/easter">Easter Course</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.instagram.com/chezegrinds/" target="_blank" rel="noopener" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@chezegrinds" target="_blank" rel="noopener" title="TikTok" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="14" height="16" viewBox="0 0 24 27" fill="currentColor"><path d="M19.59 7.27a6.72 6.72 0 0 1-3.94-1.27v8.6a6.2 6.2 0 1 1-6.2-6.2c.34 0 .67.03 1 .08v3.43a2.85 2.85 0 1 0 1.97 2.69V.5h3.35a6.72 6.72 0 0 0 3.82 6.77z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1Agh1zfPnK/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="9" height="16" viewBox="0 0 10 18" fill="currentColor"><path d="M6.5 18V9.9h2.7l.4-3.1H6.5V4.9c0-.9.25-1.5 1.54-1.5H9.7V.62C9.38.58 8.35.5 7.16.5 4.76.5 3.1 2 3.1 4.7v2.1H.4v3.1h2.7V18z"/></svg>
+      </a>
+      <a href="/webinar" class="btn btn-green nav-cta">Free Workshop →</a>
+    </div>
+    <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob" id="mob">
+  <a href="/">Home</a>
+  <a href="/services">Our Services</a>
+  <a href="/easter">Easter Course</a>
+  <a href="/one-to-one">1 to 1 Support</a>
+  <a href="/webinar" class="mm-cta" onclick="closeMenu()">Reserve Free Workshop Spot</a>
+</div>
+
+<section class="confirmed-hero" style="flex:1;display:flex;align-items:center;width:100%;padding-top:68px">
+  <div class="wrap confirmed-inner">
+    <div class="check-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="confirmed-badge">You're Registered</div>
+    <h1>You're <em>In.</em><br>See You Saturday.</h1>
+    <p>Your spot is confirmed for the free live workshop. One thing left to do — join the WhatsApp group to get your Zoom link and reminders before the session.</p>
+    <div class="date-row">
+      <div class="date-pill">📅 Saturday 12 April</div>
+      <div class="date-pill">⏰ 6:00pm</div>
+      <div class="date-pill">💻 Live on Zoom</div>
+    </div>
+    <a href="https://chat.whatsapp.com/LJQnu9TOn2T8NATLEmNK1q" class="wa-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Join the WhatsApp Group
+    </a>
+    <p class="wa-note">Zoom link will be sent in the group before Saturday</p>
+  </div>
+</section>
+
+<!-- WHAT'S NEXT -->
+<section class="next-section">
+  <div class="wrap">
+    <h2>What Happens Next</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <h4>Join the WhatsApp Group</h4>
+          <p>Click the button above. This is where you'll get your Zoom link, reminders, and any updates before Saturday.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <h4>Show Up Saturday 12 April at 6pm</h4>
+          <p>The Zoom link will be dropped in the WhatsApp group before the session starts. Be there on time — we're starting sharp.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <h4>Walk Away With a Plan</h4>
+          <p>90 minutes. Real strategies. A clear 6-week plan to jump 2+ grades before your Leaving Cert.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">CHEZE <span>GRINDS</span></div>
+  <div class="foot-copy">© 2025 Cheze Grinds. Performance Training for Leaving Cert Maths.</div>
+</footer>
+
+</body>
+</html>
