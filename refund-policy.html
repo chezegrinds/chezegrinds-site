@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund Policy — Cheze Grinds</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;font-size:16px;line-height:1.7;color:#333;background:#fff}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --navy:#102233;--navy2:#0d1d2b;
+  --green:#0F766E;--green2:#0a5e57;--greenlight:#e8f5f4;
+  --cream:#f1eeda;--creambg:#fdfcf8;
+  --grey:#f7f7f7;--grey2:#f0f0f0;
+  --text:#2c2c2c;--textmid:#555;--textmute:#888;
+  --border:#e0e0e0;--yellow:#f59e0b;
+  --max:1140px;--pad:88px;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.section{padding:var(--pad) 0}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.2;color:var(--navy)}
+h1{font-size:clamp(28px,4vw,44px)}
+h2{font-size:clamp(20px,3vw,28px);margin-top:48px;margin-bottom:16px}
+h3{font-size:clamp(17px,2.5vw,22px)}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:14px 30px;border-radius:4px;font-family:'Lato',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:2px solid transparent;transition:all .18s;letter-spacing:.02em}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-green:hover{background:var(--green2);border-color:var(--green2);transform:translateY(-1px)}
+
+/* NAV */
+.nav-wrap{position:fixed;top:40px;left:0;right:0;z-index:999;background:#fff;box-shadow:0 1px 0 var(--border),0 4px 16px rgba(0,0,0,.06)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:14px;font-weight:700;color:var(--text);padding:8px 13px;border-radius:3px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--navy);background:var(--grey)}
+.nav-cta{margin-left:8px}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.mob{display:none;position:fixed;top:108px;left:0;right:0;bottom:0;background:#fff;z-index:998;overflow-y:auto;padding:18px 28px 40px;flex-direction:column}
+.mob.open{display:flex}
+.mob a{font-weight:700;font-size:16px;color:var(--text);padding:13px 0;border-bottom:1px solid var(--grey2)}
+.mob a:hover{color:var(--navy)}
+.mob .mm-cta{margin-top:18px;background:var(--green);color:#fff;text-align:center;padding:16px;border-radius:4px;font-size:16px;font-weight:700}
+
+/* PAGE */
+.page{display:block;padding-top:108px}
+
+/* POLICY CONTENT */
+.policy{padding:60px 0 88px}
+.policy p{margin-bottom:18px;color:var(--text);max-width:720px}
+.policy h2{color:var(--navy);margin-top:44px;margin-bottom:12px}
+.policy .updated{font-size:14px;color:var(--textmute);margin-bottom:36px}
+.policy strong{font-weight:700;color:var(--navy)}
+.policy a.email-link{color:var(--green);font-weight:700;border-bottom:1px solid var(--green);transition:opacity .15s}
+.policy a.email-link:hover{opacity:.7}
+
+/* FOOTER */
+footer{background:#1a1a1a;padding:44px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.foot-logo{display:flex;align-items:center}
+.foot-logo span{color:#5eead4}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.5);transition:color .15s}
+.foot-links a:hover{color:#fff}
+.foot-copy{font-size:13px;color:rgba(255,255,255,.35)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  :root{--pad:60px}
+  .nav-links,.nav-cta{display:none}
+  .ham{display:flex}
+}
+@media(max-width:600px){
+  :root{--pad:40px}
+  .foot-inner{flex-direction:column;align-items:center;text-align:center}
+  .foot-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY BANNER -->
+<div style="background:#b91c1c;color:#fff;text-align:center;padding:10px 20px;font-family:'Lato',sans-serif;font-size:14px;font-weight:700;letter-spacing:.02em;position:fixed;top:0;left:0;right:0;z-index:1001;">
+  ⏰ Last day to sign up is <strong>Friday 17th April</strong> — secure your place now before it closes.
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" style="display:flex;align-items:center;gap:10px;"><img src="chezelogo.png" alt="Cheze Grinds" style="height:44px;width:44px;border-radius:50%;display:block;"><span style="font-family:Montserrat,sans-serif;font-weight:900;font-size:20px;color:#102233;letter-spacing:-0.02em;">Cheze Grinds</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">6-Week Revision</a></li>
+      <li><a href="/one-to-one">1 to 1 Support</a></li>
+      <li><a href="/mock">Mock Papers</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.instagram.com/chezegrinds/" target="_blank" rel="noopener" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@chezegrinds" target="_blank" rel="noopener" title="TikTok" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="14" height="16" viewBox="0 0 24 27" fill="currentColor"><path d="M19.59 7.27a6.72 6.72 0 0 1-3.94-1.27v8.6a6.2 6.2 0 1 1-6.2-6.2c.34 0 .67.03 1 .08v3.43a2.85 2.85 0 1 0 1.97 2.69V.5h3.35a6.72 6.72 0 0 0 3.82 6.77z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1Agh1zfPnK/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#555;transition:color 0.15s;" onmouseover="this.style.color='#102233'" onmouseout="this.style.color='#555'">
+        <svg width="9" height="16" viewBox="0 0 10 18" fill="currentColor"><path d="M6.5 18V9.9h2.7l.4-3.1H6.5V4.9c0-.9.25-1.5 1.54-1.5H9.7V.62C9.38.58 8.35.5 7.16.5 4.76.5 3.1 2 3.1 4.7v2.1H.4v3.1h2.7V18z"/></svg>
+      </a>
+      <a href="/services" class="btn btn-green nav-cta">Get Started &rarr;</a>
+    </div>
+    <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob" id="mob">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/services" onclick="closeMenu()">6-Week Revision</a>
+  <a href="/one-to-one" onclick="closeMenu()">1 to 1 Support</a>
+  <a href="/mock" onclick="closeMenu()">Mock Papers</a>
+  <a href="/services" class="mm-cta" onclick="closeMenu()">Get Started &rarr;</a>
+</div>
+
+<!-- POLICY PAGE -->
+<div class="page">
+  <div class="wrap">
+    <div class="policy">
+      <h1>Refund Policy</h1>
+      <p class="updated">Last updated: April 2026</p>
+
+      <h2>1. Digital Programme Purchases</h2>
+      <p>All Cheze Grinds programmes (including the Academy and Premium Performance Programme) are digital education services. When you enrol and gain access to programme materials, live sessions, and community features, delivery of the service begins immediately.</p>
+      <p>Under EU and Irish consumer law, you have the right to cancel a digital purchase within 14 days of purchase. However, by enrolling and accessing the programme, you acknowledge and consent that delivery of the digital service has begun, and you waive your 14-day right of withdrawal.</p>
+      <p><strong>Once you have accessed any programme content (live classes, recordings, community, resources), no refund will be issued.</strong></p>
+
+      <h2>2. Deposits</h2>
+      <p><strong>All deposits are non-refundable.</strong> When you pay a deposit, Cheze Grinds commits resources to you: a seat is reserved in a limited-capacity cohort, tutor time is allocated, and preparation work begins. That seat can no longer be offered to another student.</p>
+      <p>Your deposit compensates Cheze Grinds for this opportunity cost. If you choose not to proceed after paying a deposit, the deposit will not be returned under any circumstances.</p>
+
+      <h2>3. Instalment Payments</h2>
+      <p>If you selected a split-payment option, all remaining instalments remain due regardless of whether you continue to engage with the programme. Non-attendance does not cancel your payment obligation.</p>
+
+      <h2>4. Requests Before Access</h2>
+      <p>If you have paid but have <strong>not yet accessed any programme content</strong>, you may request a full refund within 14 days of purchase by emailing <a class="email-link" href="mailto:chezegrinds@gmail.com">chezegrinds@gmail.com</a>. Refunds in this case will be processed within 10 business days.</p>
+
+      <h2>5. One-to-One Grinds</h2>
+      <p>Cancellations for individual tutoring sessions must be made at least 24 hours in advance. Sessions cancelled with less than 24 hours notice, or no-shows, will be charged in full. Unused sessions from a prepaid block are non-refundable but may be rescheduled within the original term at Cheze Grinds' discretion.</p>
+
+      <h2>6. Exceptional Circumstances</h2>
+      <p>Cheze Grinds reserves the right to offer partial or full refunds at its sole discretion in genuinely exceptional circumstances (e.g., serious illness with medical documentation). These are assessed on a case-by-case basis and are not guaranteed.</p>
+
+      <h2>7. How to Request a Refund</h2>
+      <p>All refund requests must be submitted in writing to <a class="email-link" href="mailto:chezegrinds@gmail.com">chezegrinds@gmail.com</a> with your full name, programme enrolled, date of purchase, and reason for request. Requests made via social media or WhatsApp will not be processed.</p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>Cheze Grinds may update this policy at any time. The version in effect at the time of your purchase applies to your transaction.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-logo"><img src="chezelogo.png" alt="Cheze Grinds" style="height:48px;width:48px;border-radius:50%;display:block;"></div>
+      <ul class="foot-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">6-Week Revision</a></li>
+        <li><a href="/one-to-one">1 to 1 Support</a></li>
+        <li><a href="/mock">Mock Papers</a></li>
+        <li><a href="/refund-policy">Refund Policy</a></li>
+      </ul>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+        <div style="display:flex;gap:14px;align-items:center;">
+          <a href="https://www.instagram.com/chezegrinds/" target="_blank" rel="noopener" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.7)" stroke="none"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@chezegrinds" target="_blank" rel="noopener" title="TikTok" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <svg width="16" height="18" viewBox="0 0 24 27" fill="rgba(255,255,255,0.7)"><path d="M19.59 7.27a6.72 6.72 0 0 1-3.94-1.27v8.6a6.2 6.2 0 1 1-6.2-6.2c.34 0 .67.03 1 .08v3.43a2.85 2.85 0 1 0 1.97 2.69V.5h3.35a6.72 6.72 0 0 0 3.82 6.77z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1Agh1zfPnK/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <svg width="10" height="18" viewBox="0 0 10 18" fill="rgba(255,255,255,0.7)"><path d="M6.5 18V9.9h2.7l.4-3.1H6.5V4.9c0-.9.25-1.5 1.54-1.5H9.7V.62C9.38.58 8.35.5 7.16.5 4.76.5 3.1 2 3.1 4.7v2.1H.4v3.1h2.7V18z"/></svg>
+          </a>
+        </div>
+        <div class="foot-copy">Cheze Grinds. Maths grinds and exam performance.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mob').classList.toggle('open');}
+function closeMenu(){document.getElementById('mob').classList.remove('open');}
+</script>
+</body>
+</html>
