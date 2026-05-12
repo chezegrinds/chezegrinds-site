@@ -750,6 +750,39 @@
   body.closed .closed-banner { display: block; }
   body.closed .subject .s-cta { background: #555; color: #ddd; pointer-events: none; }
   body.closed .announce { background: var(--danger); color: #fff; }
+
+  /* ====== Footer ====== */
+  .site-footer {
+    background: #08101e;
+    padding: 48px 0 28px;
+    border-top: 1px solid rgba(45,212,191,0.08);
+    margin-top: 40px;
+  }
+  .site-footer .footer-wrap {
+    max-width: 1080px; margin: 0 auto; padding: 0 20px;
+  }
+  .foot-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+  .foot-links a {
+    color: var(--muted); font-weight: 700; font-size: 14px;
+    text-decoration: none; transition: color .15s ease;
+  }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-socials { display: flex; gap: 10px; }
+  .foot-socials a {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); transition: background .15s ease, color .15s ease;
+  }
+  .foot-socials a:hover { background: rgba(45,212,191,0.15); color: var(--accent); }
+  .foot-copy {
+    text-align: center; color: var(--muted); font-size: 13px;
+    margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.05);
+  }
 </style>
 </head>
 <body>
@@ -1155,6 +1188,32 @@
   </div>
 
 </div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="foot-inner">
+      <ul class="foot-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/earlybird">May &amp; June Crash Courses</a></li>
+        <li><a href="/one-to-one">Summer Grinds</a></li>
+        <li><a href="/refund-policy">Refund Policy</a></li>
+      </ul>
+      <div class="foot-socials">
+        <a href="https://instagram.com/chezegrinds" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://tiktok.com/@chezegrinds" aria-label="TikTok" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 7.6a6.7 6.7 0 0 1-4-1.3v8.5a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3a2.7 2.7 0 1 0 1.8 2.6V2h2.9a4.7 4.7 0 0 0 4.1 4.6v3z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1Agh1zfPnK/" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.3v3.2H10V22h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-copy">Cheze Grinds · Maths grinds and exam performance · chezegrinds.com</div>
+  </div>
+</footer>
 
 <a class="sticky-mobile" href="#lock-in">Lock in Early Bird →</a>
 
