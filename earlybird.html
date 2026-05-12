@@ -95,14 +95,23 @@
     gap: 16px;
   }
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--brand-navy);
     text-decoration: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
-  .nav-logo span { color: var(--brand-teal); }
+  .nav-logo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: block;
+  }
+  .nav-logo .logo-accent { color: var(--brand-teal); }
   .nav-links {
     display: flex;
     align-items: center;
@@ -754,7 +763,10 @@
 <!-- Navbar (matches chezegrinds.com) -->
 <header class="nav-wrap">
   <div class="nav-inner">
-    <a href="https://chezegrinds.com" class="nav-logo">Cheze <span>Grinds</span></a>
+    <a href="https://chezegrinds.com" class="nav-logo">
+      <img src="chezelogo.png" alt="Cheze Grinds" onerror="this.style.display='none'" />
+      <span>Cheze <span class="logo-accent">Grinds</span></span>
+    </a>
     <nav class="nav-links">
       <a href="https://chezegrinds.com">Home</a>
       <a href="/earlybird">May &amp; June Crash Courses</a>
