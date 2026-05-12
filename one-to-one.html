@@ -95,6 +95,10 @@
   .hero-btns .h-primary:hover { transform: translateY(-1px); }
   .hero-btns .h-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
   .hero-btns .h-ghost:hover { background: var(--accent-soft); }
+  .hero-btns .h-whatsapp { background: #25D366; color: #08381f; box-shadow: 0 8px 22px rgba(37, 211, 102, 0.25); }
+  .hero-btns .h-whatsapp:hover { background: #1ebc59; transform: translateY(-1px); }
+  .price-anchor { color: var(--muted); font-size: 14px; margin: 16px 0 0; }
+  .price-anchor strong { color: var(--text); }
 
   .price-card {
     background: linear-gradient(135deg, rgba(45,212,191,0.16), rgba(45,212,191,0.04));
@@ -175,6 +179,8 @@
   .cta-primary:hover { transform: translateY(-1px); }
   .cta-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 15px; }
   .cta-ghost:hover { background: var(--accent-soft); }
+  .cta-whatsapp { background: #25D366; color: #08381f; padding: 14px 26px; border-radius: 999px; font-weight: 900; font-size: 15px; transition: background .15s, transform .15s; }
+  .cta-whatsapp:hover { background: #1ebc59; transform: translateY(-1px); }
 
   footer { background: #08101e; padding: 48px 0 28px; border-top: 1px solid rgba(45,212,191,0.08); margin-top: 40px; }
   .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
@@ -185,6 +191,18 @@
   .foot-socials a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: var(--muted); transition: background .15s, color .15s; }
   .foot-socials a:hover { background: rgba(45,212,191,0.15); color: var(--accent); }
   .foot-copy { text-align: center; color: var(--muted); font-size: 13px; margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+  /* Floating WhatsApp */
+  .float-wa {
+    position: fixed; right: 18px; bottom: 18px; z-index: 50;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    transition: transform .15s ease;
+  }
+  .float-wa:hover { transform: translateY(-2px) scale(1.04); }
+  .float-wa svg { width: 28px; height: 28px; }
 </style>
 </head>
 <body>
@@ -240,8 +258,13 @@
         </div>
         <div class="hero-btns">
           <a href="https://form.typeform.com/to/Clemi1KP" target="_blank" rel="noopener" class="h-primary">Apply for Summer Grinds →</a>
+          <a href="https://wa.me/353857218498?text=Hi%20Cheze%2C%20I%27d%20like%20to%20chat%20about%20Summer%20Grinds" target="_blank" rel="noopener" class="h-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7 0-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.7-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.7 1.2 2.9.1.2 2.1 3.2 5 4.4 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 2-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            WhatsApp Us
+          </a>
           <a href="#how" class="h-ghost">How it works</a>
         </div>
+        <p class="price-anchor">Plans from <strong>€110 every 4 weeks</strong> · weekly payment option available</p>
       </div>
     </div>
   </div>
@@ -332,7 +355,7 @@
         <span class="eyebrow">Meet the founder</span>
         <h2>Chisom Eze</h2>
         <div class="role">Founder · Cheze Grinds</div>
-        <p>Chisom is the founder of Cheze Grinds and has worked directly with <strong>over 600 Irish students</strong>. He built Cheze Grinds around one goal: closing the gap between what a student knows and what they can show on exam day.</p>
+        <p>Chisom went from <strong>418 in the mocks to 601 in the Leaving Cert</strong>. He built Cheze Grinds around that same playbook and has since worked directly with <strong>over 600 Irish students</strong>.</p>
         <p>Every 1 to 1 tutor on the team is hand-picked and trained in the Cheze Grinds method — same standard, same structure, same focus on results.</p>
       </div>
     </div>
@@ -395,7 +418,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How does payment work?</p>
-        <p class="faq-a">Payments run every four weeks. If it's easier we can split it into a weekly payment plan. We agree the package and the schedule on the discovery call.</p>
+        <p class="faq-a">Plans start from <strong>€110 every 4 weeks</strong>. If a weekly payment plan suits the family better, we'll split it that way — no extra cost. We agree the exact package and schedule on the discovery call.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">What if it's not the right fit?</p>
@@ -413,6 +436,9 @@
       <p>Apply for Summer Grinds today. We'll get on a quick call, agree the plan, match the tutor and start your child's summer on the front foot.</p>
       <div class="cta-btns">
         <a href="https://form.typeform.com/to/Clemi1KP" target="_blank" rel="noopener" class="cta-primary">Apply for Summer Grinds →</a>
+        <a href="https://wa.me/353857218498?text=Hi%20Cheze%2C%20I%27d%20like%20to%20chat%20about%20Summer%20Grinds" target="_blank" rel="noopener" class="cta-whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:6px;"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7 0-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.7-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.7 1.2 2.9.1.2 2.1 3.2 5 4.4 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 2-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>WhatsApp Us
+        </a>
         <a href="/earlybird" class="cta-ghost">See May &amp; June Crash Courses</a>
       </div>
     </div>
@@ -437,6 +463,10 @@
     <div class="foot-copy">Cheze Grinds · Maths, Physics &amp; Chemistry grinds · chezegrinds.com</div>
   </div>
 </footer>
+
+<a class="float-wa" href="https://wa.me/353857218498?text=Hi%20Cheze%2C%20I%27d%20like%20to%20chat%20about%20Summer%20Grinds" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7 0-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.7-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.7 1.2 2.9.1.2 2.1 3.2 5 4.4 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 2-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
 
 <script>
   document.getElementById('burger').addEventListener('click', () => {
