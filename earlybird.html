@@ -428,6 +428,7 @@
   }
   .subject .s-strike { color: var(--muted); text-decoration: line-through; font-size: 16px; margin-left: 6px; font-weight: 700; }
   .subject .s-save { color: var(--accent); font-size: 12px; font-weight: 800; margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .subject .s-sessions { color: var(--text); font-size: 12.5px; font-weight: 700; margin-top: 6px; opacity: 0.85; }
   .subject .s-cta {
     display: inline-block;
     margin-top: 10px;
@@ -605,8 +606,11 @@
   .wall-imgs {
     display: grid;
     gap: 16px;
-    max-width: 720px;
+    max-width: 560px;
     margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    .wall-imgs { max-width: 100%; }
   }
   .wall-imgs img {
     width: 100%;
@@ -845,6 +849,7 @@
         <div class="s-title">LC HL Maths</div>
         <div class="s-price">€50 <span class="s-strike">€80</span></div>
         <div class="s-save">Save €30 — Early Bird</div>
+        <div class="s-sessions">4 full-day sessions · 24+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Filling fast</div>
       </a>
@@ -852,6 +857,7 @@
         <div class="s-title">LC OL Maths</div>
         <div class="s-price">€50 <span class="s-strike">€80</span></div>
         <div class="s-save">Save €30 — Early Bird</div>
+        <div class="s-sessions">4 full-day sessions · 24+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Limited seats</div>
       </a>
@@ -859,6 +865,7 @@
         <div class="s-title">Physics</div>
         <div class="s-price">€40 <span class="s-strike">€60</span></div>
         <div class="s-save">Save €20 — Early Bird</div>
+        <div class="s-sessions">3 full-day sessions · 18+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Filling fast</div>
       </a>
@@ -866,6 +873,7 @@
         <div class="s-title">Chemistry</div>
         <div class="s-price">€40 <span class="s-strike">€60</span></div>
         <div class="s-save">Save €20 — Early Bird</div>
+        <div class="s-sessions">3 full-day sessions · 18+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Limited seats</div>
       </a>
@@ -873,6 +881,7 @@
         <div class="s-title">Applied Maths</div>
         <div class="s-price">€40 <span class="s-strike">€60</span></div>
         <div class="s-save">Save €20 — Early Bird</div>
+        <div class="s-sessions">3 full-day sessions · 18+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Early Bird only</div>
       </a>
@@ -880,6 +889,7 @@
         <div class="s-title">JC HL Maths</div>
         <div class="s-price">€15 <span class="s-strike">€20</span></div>
         <div class="s-save">Save €5 — Early Bird</div>
+        <div class="s-sessions">1 full-day session · 6+ hrs</div>
         <div><span class="s-cta">Pay Now</span></div>
         <div class="scarce">Single session</div>
       </a>
@@ -917,12 +927,12 @@
     <h2>Real messages from last year's crash course students</h2>
     <p class="sub">Unfiltered. Straight from the inbox after the exams.</p>
     <div class="vids">
-      <video controls preload="metadata" playsinline>
-        <source src="testimonial1.mp4" type="video/mp4" />
+      <video controls preload="metadata" playsinline webkit-playsinline>
+        <source src="testimonial1.mp4#t=0.1" type="video/mp4" />
         Your browser doesn't support video playback.
       </video>
-      <video controls preload="metadata" playsinline>
-        <source src="testimonial2.mp4" type="video/mp4" />
+      <video controls preload="metadata" playsinline webkit-playsinline>
+        <source src="testimonial2.mp4#t=0.1" type="video/mp4" />
         Your browser doesn't support video playback.
       </video>
     </div>
