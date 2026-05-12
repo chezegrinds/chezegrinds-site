@@ -369,6 +369,20 @@
   }
   .rev-cta:hover { background: var(--accent-soft); }
 
+  /* Wall of proof — screenshots on home */
+  .wall-imgs-home {
+    max-width: 560px; margin: 40px auto 0; display: grid; gap: 16px;
+  }
+  .wall-imgs-home .wih-eyebrow {
+    text-align: center; color: var(--muted); font-size: 13px;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin: 0 0 4px;
+  }
+  .wall-imgs-home img {
+    width: 100%; height: auto; display: block;
+    border-radius: 12px; background: #0a0f1c;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+
   /* CTA band */
   .cta-band {
     background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(45,212,191,0.05));
@@ -460,7 +474,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.3v3.2H10V22h3z"/></svg>
         </a>
       </div>
-      <a href="/earlybird" class="btn-green">Get Started →</a>
+      <a href="/earlybird" class="btn-green">Crash Courses →</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -470,7 +484,7 @@
     <a href="/">Home</a>
     <a href="/earlybird">May &amp; June Crash Courses</a>
     <a href="/one-to-one">Summer Grinds</a>
-    <a href="/earlybird" class="btn-green">Get Started →</a>
+    <a href="/earlybird" class="btn-green">Crash Courses →</a>
   </div>
 </header>
 
@@ -697,6 +711,12 @@
         <div class="rev-name" style="margin-top:12px;">Aoife — HL Maths</div>
         <div class="rev-meta">Leaving Cert 2025</div>
       </div>
+    </div>
+
+    <div class="wall-imgs-home">
+      <p class="wih-eyebrow">Unfiltered — straight from the inbox after the exams</p>
+      <img src="reviews1.jpg" alt="Real student thank-you messages from last year's crash courses" loading="lazy" />
+      <img src="reviews3.jpg" alt="More real student messages — grade jumps and exam wins" loading="lazy" />
     </div>
   </div>
 </section>
