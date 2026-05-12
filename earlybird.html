@@ -928,15 +928,21 @@
     <h2>Real messages from last year's crash course students</h2>
     <p class="sub">Unfiltered. Straight from the inbox after the exams.</p>
     <div class="vids">
-      <video controls preload="metadata" playsinline webkit-playsinline>
-        <source src="testimonial1.mp4#t=0.1" type="video/mp4" />
+      <video controls preload="auto" playsinline webkit-playsinline>
+        <source src="testimonial1.mp4" type="video/mp4" />
         Your browser doesn't support video playback.
       </video>
-      <video controls preload="metadata" playsinline webkit-playsinline>
-        <source src="testimonial2.mp4#t=0.1" type="video/mp4" />
+      <video controls preload="auto" playsinline webkit-playsinline>
+        <source src="testimonial2.mp4" type="video/mp4" />
         Your browser doesn't support video playback.
       </video>
     </div>
+    <script>
+      // Seek each video to its first frame so it renders a real thumbnail instead of a black box
+      document.querySelectorAll('.vids video').forEach(v => {
+        v.addEventListener('loadedmetadata', () => { try { v.currentTime = 0.1; } catch(e) {} });
+      });
+    </script>
     <div class="wall-imgs">
       <img src="reviews1.jpg" alt="Real student thank-you messages after last year's crash courses — H1s, grade jumps, exam wins" loading="lazy" />
       <img src="reviews2.jpg" alt="Real student thank-you messages — 'best 15 I've ever spent', physics last exam wins" loading="lazy" />
