@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LC HL Physics & Chemistry Crash Course — Cheze Grinds</title>
+<meta name="description" content="Live HL Physics and HL Chemistry crash courses with Cheze Grinds. Taught by Ben Cullinane (99% LC Physics, 100% LC Chemistry). Full course masterclasses plus exam paper drills on Zoom Webinar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --brand-navy:#102233;--brand-teal:#0F766E;--bg:#0b1424;--bg-2:#0f1b30;--card:#111d36;--card-2:#0d1830;--border:rgba(45,212,191,.25);--border-strong:rgba(45,212,191,.55);--text:#e6edf6;--muted:#93a4bf;--accent:#2dd4bf;--accent-soft:rgba(45,212,191,.12);--warn:#ffb547; }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}html{scroll-behavior:smooth}
+  body{background:radial-gradient(1200px 600px at 80% -200px,rgba(45,212,191,.08),transparent 60%),radial-gradient(900px 500px at -10% 30%,rgba(45,212,191,.05),transparent 60%),var(--bg);color:var(--text);font-family:'Lato',sans-serif;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif;letter-spacing:-.01em}a{color:inherit;text-decoration:none}
+  .urgency-bar{background:var(--brand-navy);color:#fff;text-align:center;font-size:13px;font-weight:700;letter-spacing:.02em;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:8px}
+  .urgency-bar .pulse{display:inline-block;width:8px;height:8px;background:#ff2a3a;border-radius:50%;animation:pulseAnim 1.4s infinite;box-shadow:0 0 0 0 rgba(255,42,58,.7)}
+  @keyframes pulseAnim{0%{box-shadow:0 0 0 0 rgba(255,42,58,.7)}70%{box-shadow:0 0 0 12px rgba(255,42,58,0)}100%{box-shadow:0 0 0 0 rgba(255,42,58,0)}}
+  .nav-wrap{position:sticky;top:0;z-index:40;background:#fff;box-shadow:0 2px 12px rgba(16,34,51,.08)}
+  .nav-inner{max-width:1140px;margin:0 auto;height:68px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:var(--brand-navy)}
+  .nav-logo img{height:40px;width:40px;border-radius:50%}.nav-logo .logo-accent{color:var(--brand-teal)}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a,.nav-drop-btn{color:var(--brand-navy);font-size:14px;font-weight:700;padding:8px 12px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+  .nav-links a:hover,.nav-drop-btn:hover{background:#f1f5f9}
+  .nav-drop{position:relative}
+  .nav-drop::after{content:"";position:absolute;left:0;top:100%;width:100%;height:12px}
+  .nav-drop-btn .caret{width:9px;height:9px;transition:transform .15s ease}
+  .nav-drop:hover .nav-drop-btn .caret{transform:rotate(180deg)}
+  .nav-dd{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid #eee;border-radius:8px;min-width:220px;box-shadow:0 12px 28px rgba(0,0,0,.12);opacity:0;pointer-events:none;visibility:hidden;transition:opacity .15s,visibility .15s;z-index:50;overflow:hidden}
+  .nav-drop:hover .nav-dd{opacity:1;pointer-events:all;visibility:visible}
+  .nav-dd a{display:block;padding:12px 18px;font-size:14px;font-weight:700;color:var(--brand-navy);border-bottom:1px solid #f5f5f5;border-radius:0}
+  .nav-dd a:last-child{border-bottom:0}
+  .nav-dd a:hover{background:#f1f5f9;color:var(--brand-teal)}
+  .mob-heading{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-teal);padding:12px 6px 4px}
+  .mob-sub{padding-left:18px!important}.nav-cta{display:flex;align-items:center;gap:12px}
+  .nav-socials{display:flex;gap:4px}.nav-socials a{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--brand-navy);border-radius:8px}
+  .nav-socials a:hover{background:#f1f5f9;color:var(--brand-teal)}
+  .btn-green{background:var(--brand-teal);color:#fff!important;padding:10px 18px!important;border-radius:6px;font-weight:800!important;font-size:14px!important;white-space:nowrap}
+  .btn-green:hover{background:#0e5e58!important;transform:translateY(-1px)}
+  .nav-burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:var(--brand-navy)}
+  @media(max-width:880px){.nav-links,.nav-socials{display:none}.nav-burger{display:inline-flex}.mobile-menu.open{display:block}}
+  .mobile-menu{display:none;background:#fff;border-top:1px solid #eee;padding:12px 20px 18px}
+  .mobile-menu a{display:block;color:var(--brand-navy);font-weight:700;padding:10px 6px;border-bottom:1px solid #f1f5f9}
+  .mobile-menu a.btn-green{margin-top:10px;text-align:center}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}.section{padding:64px 0}@media(max-width:720px){.section{padding:48px 0}}
+  .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.18em;font-size:12px;padding-bottom:6px;border-bottom:2px solid var(--accent);display:inline-block;margin:0 0 18px;text-transform:uppercase}
+  .center{text-align:center}.sec-sub{color:var(--muted);font-size:17px;max-width:680px;margin:0 auto 32px}
+  .hero{padding:64px 0 24px}.hero h1{font-size:clamp(38px,6vw,60px);line-height:1.05;margin:0 0 14px;font-weight:900;letter-spacing:-.02em}
+  .hero-sub{color:var(--muted);font-size:18px;max-width:680px;margin:0 0 22px}
+  .when-line{background:var(--card);border:1px solid var(--border-strong);border-radius:12px;padding:14px 18px;margin:0 0 22px;display:inline-flex;align-items:center;gap:12px;font-weight:700}
+  .when-line .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}.when-line b{color:var(--accent)}
+  .countdown-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}@media(max-width:640px){.countdown-pair{grid-template-columns:1fr}}
+  .countdown-wrap{background:linear-gradient(135deg,rgba(45,212,191,.14),rgba(45,212,191,.04));border:1px solid var(--border-strong);border-radius:16px;padding:18px;text-align:center}
+  .countdown-label{color:var(--muted);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:700}
+  .countdown-label b{color:var(--accent)}
+  .countdown{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .cd-cell{background:rgba(11,20,36,.7);border:1px solid var(--border);border-radius:12px;padding:10px 12px;min-width:62px}
+  .cd-num{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+  .cd-lbl{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;font-weight:700}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#00251f;padding:14px 24px;border-radius:999px;font-weight:900;font-size:15px;box-shadow:0 10px 26px rgba(45,212,191,.28)}
+  .btn-primary:hover{transform:translateY(-1px)}
+  .bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:880px){.bundle-grid{grid-template-columns:1fr}}
+  .bundle-tile{background:var(--card);border:1px solid var(--border-strong);border-radius:18px;padding:28px;text-align:center;display:flex;flex-direction:column;gap:8px;position:relative}
+  .bundle-tile.best{border-color:var(--accent);box-shadow:0 18px 44px rgba(45,212,191,.22);transform:translateY(-4px)}
+  .bundle-tile .best-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#00251f;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+  .bundle-tile h3{font-size:22px;margin:0;font-weight:900}.bundle-tile .b-eyebrow{color:var(--accent);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+  .bundle-tile p{color:var(--muted);margin:0 0 4px;font-size:14.5px;flex:1}.bundle-tile .b-meta{color:var(--text);font-weight:700;font-size:14px}
+  .bundle-tile .b-price{font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;color:var(--accent);line-height:1;margin:8px 0 6px}
+  .bundle-tile .b-cta{display:inline-block;background:var(--accent);color:#00251f;padding:13px 18px;border-radius:999px;font-weight:900;font-size:14.5px;margin-top:auto;transition:transform .15s}
+  .bundle-tile .b-cta:hover{transform:translateY(-1px)}
+  .sched-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:720px){.sched-grid{grid-template-columns:1fr}}
+  .sched-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:108px 1fr;gap:16px;align-items:center}
+  .sched-card .s-date{font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;line-height:1.2;color:var(--accent)}
+  .sched-card .s-day{color:var(--muted);font-size:13px;margin-top:2px}.sched-card .s-time{color:var(--muted);font-size:13px;margin-top:4px}
+  .sched-card .s-title{font-weight:800;font-size:16px}.sched-card .s-sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .section-subtitle{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;margin:0 0 10px;color:var(--text)}
+  .stats-bar{background:var(--bg-2);border-top:1px solid rgba(45,212,191,.08);border-bottom:1px solid rgba(45,212,191,.08);padding:28px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}@media(max-width:540px){.stats-grid{grid-template-columns:1fr;gap:12px}}
+  .stat-num{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:var(--accent)}
+  .stat-lbl{color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:4px}
+  .bullet-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;max-width:760px;margin:0 auto}
+  .bullet-card h3{margin:0 0 12px;font-size:20px}.bullet-card ul{margin:0;padding:0;list-style:none}
+  .bullet-card li{color:var(--text);font-size:15px;padding:8px 0 8px 28px;position:relative;line-height:1.5}
+  .bullet-card li::before{content:"✓";position:absolute;left:0;top:8px;color:var(--accent);font-weight:900}
+  .teacher-grid{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center}
+  @media(max-width:720px){.teacher-grid{grid-template-columns:1fr;text-align:center}.teacher-photo{margin:0 auto}}
+  .teacher-photo{width:280px;height:320px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,rgba(45,212,191,.2),rgba(15,118,110,.4));border:1px solid var(--border-strong);box-shadow:0 16px 40px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:96px;color:var(--accent)}
+  .teacher h2{margin:0 0 12px;font-size:clamp(26px,4vw,34px)}
+  .teacher .role{color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .teacher p{color:var(--muted);font-size:16px;margin:0 0 12px;line-height:1.7}.teacher p strong{color:var(--text)}
+  .proof-img{display:block;max-width:720px;margin:0 auto;border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.4)}
+  .faq-item{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .faq-item summary{list-style:none;cursor:pointer;padding:16px 20px;font-weight:800;font-size:16px;position:relative}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--accent);transition:transform .15s}
+  .faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg)}.faq-item .faq-body{padding:0 20px 18px;color:var(--muted);font-size:14.5px}
+  .sticky-mobile{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--accent);color:#00251f;border-radius:999px;padding:14px 18px;font-weight:900;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.4);display:none;font-size:15px}
+  @media(max-width:760px){.sticky-mobile{display:block}body{padding-bottom:70px}}
+  .site-footer{background:#08101e;padding:48px 0 28px;border-top:1px solid rgba(45,212,191,.08);margin-top:30px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;list-style:none;padding:0;margin:0}
+  .foot-links a{color:var(--muted);font-weight:700;font-size:14px}.foot-links a:hover{color:var(--accent)}
+  .foot-socials{display:flex;gap:10px}
+  .foot-socials a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+  .foot-socials a:hover{background:rgba(45,212,191,.15);color:var(--accent)}
+  .foot-copy{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.05)}
+</style>
+</head>
+<body>
+
+<div class="urgency-bar"><span class="pulse"></span><span>Physics kicks off Tue 26 May. Chemistry kicks off Fri 29 May. Seats are filling fast.</span></div>
+
+<header class="nav-wrap">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="chezelogo.png" alt="Cheze Grinds" onerror="this.style.display='none'"/><span>Cheze <span class="logo-accent">Grinds</span></span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <div class="nav-drop">
+        <span class="nav-drop-btn">Crash Courses <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 5 6 8 9 5"/></svg></span>
+        <div class="nav-dd">
+          <a href="/paper1">LC HL Maths</a>
+          <a href="/ol">LC OL Maths</a>
+          <a href="/jc">JC HL Maths</a>
+          <a href="/sciences">Physics &amp; Chemistry</a>
+        </div>
+      </div>
+      <a href="/one-to-one">Summer Grinds</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="nav-socials">
+        <a href="https://instagram.com/chezegrinds" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://tiktok.com/@chezegrinds" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 7.6a6.7 6.7 0 0 1-4-1.3v8.5a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3a2.7 2.7 0 1 0 1.8 2.6V2h2.9a4.7 4.7 0 0 0 4.1 4.6v3z"/></svg></a>
+        <a href="https://www.facebook.com/share/1Agh1zfPnK/" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.3v3.2H10V22h3z"/></svg></a>
+      </div>
+      <a href="#bundles" class="btn-green">Secure Your Seat →</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <div class="mob-heading">Crash Courses</div>
+    <a href="/paper1" class="mob-sub">LC HL Maths</a>
+    <a href="/ol" class="mob-sub">LC OL Maths</a>
+    <a href="/jc" class="mob-sub">JC HL Maths</a>
+    <a href="/sciences" class="mob-sub">Physics &amp; Chemistry</a>
+    <a href="/one-to-one">Summer Grinds</a>
+    <a href="#bundles" class="btn-green">Secure Your Seat →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">LC HL Physics &amp; Chemistry</span>
+    <h1>Every HL Physics and Chemistry topic, covered live.</h1>
+    <p class="hero-sub">Live HL Physics and HL Chemistry crash courses on Zoom Webinar. Taught by Ben Cullinane, who got <strong>99% in LC Physics</strong> and <strong>100% in LC Chemistry</strong>. Two full course masterclasses plus an exam papers class per subject.</p>
+    <div class="when-line"><span class="dot"></span><span>Physics first class · <b>Tue 26 May 2026</b> · 3pm  |  Chemistry first class · <b>Fri 29 May 2026</b> · 3pm</span></div>
+    <div class="countdown-pair">
+      <div class="countdown-wrap" id="physCountdownWrap">
+        <div class="countdown-label"><b>Physics</b> Day 1 starts in</div>
+        <div class="countdown">
+          <div class="cd-cell"><div class="cd-num" id="phys-d">0</div><div class="cd-lbl">Days</div></div>
+          <div class="cd-cell"><div class="cd-num" id="phys-h">0</div><div class="cd-lbl">Hours</div></div>
+          <div class="cd-cell"><div class="cd-num" id="phys-m">0</div><div class="cd-lbl">Mins</div></div>
+          <div class="cd-cell"><div class="cd-num" id="phys-s">0</div><div class="cd-lbl">Secs</div></div>
+        </div>
+      </div>
+      <div class="countdown-wrap" id="chemCountdownWrap">
+        <div class="countdown-label"><b>Chemistry</b> Day 1 starts in</div>
+        <div class="countdown">
+          <div class="cd-cell"><div class="cd-num" id="chem-d">0</div><div class="cd-lbl">Days</div></div>
+          <div class="cd-cell"><div class="cd-num" id="chem-h">0</div><div class="cd-lbl">Hours</div></div>
+          <div class="cd-cell"><div class="cd-num" id="chem-m">0</div><div class="cd-lbl">Mins</div></div>
+          <div class="cd-cell"><div class="cd-num" id="chem-s">0</div><div class="cd-lbl">Secs</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bundle tiles -->
+<section class="section" id="bundles">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Pick your bundle</span>
+      <h2 style="margin:0 0 14px;">Three ways in. Bundle only.</h2>
+      <p class="sec-sub">No single-class option for sciences. The whole course needs to be taught in sequence. Pick one subject or take both for the best value.</p>
+    </div>
+
+    <div class="bundle-grid">
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Physics Bundle</div>
+        <h3>HL Physics</h3>
+        <p>2 full course masterclasses plus an exam papers class. Every topic, every question type.</p>
+        <div class="b-meta">3 sessions · 15+ hours live</div>
+        <div class="b-price">€50</div>
+        <a class="b-cta" href="https://buy.stripe.com/dRm28jai33VqbmE28B2ZO20">Secure your seat for €50 →</a>
+      </div>
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Sciences Combined</div>
+        <h3>Physics + Chemistry</h3>
+        <p>Both subjects together. 6 sessions across Physics and Chemistry.</p>
+        <div class="b-meta">6 sessions · 30+ hours live</div>
+        <div class="b-price">€80</div>
+        <a class="b-cta" href="https://buy.stripe.com/fZu8wHcqbgIc0I0eVn2ZO2v">Secure your seat for €80 →</a>
+      </div>
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Chemistry Bundle</div>
+        <h3>HL Chemistry</h3>
+        <p>2 full course masterclasses plus an exam papers class. Every topic, every question type.</p>
+        <div class="b-meta">3 sessions · 15+ hours live</div>
+        <div class="b-price">€50</div>
+        <a class="b-cta" href="https://buy.stripe.com/eVqaEPgGreA4fCUbJb2ZO21">Secure your seat for €50 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="wrap"><div class="stats-grid">
+    <div><div class="stat-num">99% / 100%</div><div class="stat-lbl">Ben's LC Physics &amp; Chem</div></div>
+    <div><div class="stat-num">4.9★</div><div class="stat-lbl">Google Rating</div></div>
+    <div><div class="stat-num">2+</div><div class="stat-lbl">Avg Grade Jumps</div></div>
+  </div></div>
+</div>
+
+<!-- Physics schedule -->
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px;">
+      <span class="eyebrow">Physics Schedule</span>
+      <h3 class="section-subtitle">3 classes covering the entire HL Physics course.</h3>
+    </div>
+    <div class="sched-grid">
+      <div class="sched-card">
+        <div><div class="s-date">26 MAY</div><div class="s-day">Tuesday</div><div class="s-time">3pm</div></div>
+        <div><div class="s-title">Physics Day 1 Masterclass</div><div class="s-sub">Full topic breakdown across core Physics concepts.</div></div>
+      </div>
+      <div class="sched-card">
+        <div><div class="s-date">28 MAY</div><div class="s-day">Thursday</div><div class="s-time">3pm</div></div>
+        <div><div class="s-title">Physics Day 2 Masterclass</div><div class="s-sub">Continued topic breakdown with answering technique.</div></div>
+      </div>
+      <div class="sched-card">
+        <div><div class="s-date">15 JUN</div><div class="s-day">Monday</div><div class="s-time">6pm</div></div>
+        <div><div class="s-title">Physics Exam Papers</div><div class="s-sub">Every type of Physics exam question worked through live.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chemistry schedule -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px;">
+      <span class="eyebrow">Chemistry Schedule</span>
+      <h3 class="section-subtitle">3 classes covering the entire HL Chemistry course.</h3>
+    </div>
+    <div class="sched-grid">
+      <div class="sched-card">
+        <div><div class="s-date">29 MAY</div><div class="s-day">Friday</div><div class="s-time">3pm</div></div>
+        <div><div class="s-title">Chemistry Day 1 Masterclass</div><div class="s-sub">Core Chemistry topics, concepts and answering technique.</div></div>
+      </div>
+      <div class="sched-card">
+        <div><div class="s-date">31 MAY</div><div class="s-day">Sunday</div><div class="s-time">3pm</div></div>
+        <div><div class="s-title">Chemistry Day 2 Masterclass</div><div class="s-sub">Continued topic breakdown with exam strategy.</div></div>
+      </div>
+      <div class="sched-card">
+        <div><div class="s-date">16 JUN</div><div class="s-day">Tuesday</div><div class="s-time">3pm</div></div>
+        <div><div class="s-title">Chemistry Exam Papers</div><div class="s-sub">Every type of Chemistry exam question worked through live.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Meet Ben -->
+<section class="section" style="background:var(--bg-2);border-top:1px solid rgba(45,212,191,.08);border-bottom:1px solid rgba(45,212,191,.08);">
+  <div class="wrap">
+    <div class="teacher-grid">
+      <div class="teacher-photo">BC</div>
+      <div class="teacher">
+        <span class="eyebrow">Meet your teacher</span>
+        <h2>Ben Cullinane</h2>
+        <div class="role">Physics &amp; Chemistry Specialist</div>
+        <p>Ben got <strong>99% in LC Physics</strong> and <strong>100% in LC Chemistry</strong>, finishing his Leaving Cert with <strong>625 points</strong>. He is a 3rd year Financial Maths and Actuarial Science student at UCC and a <strong>Quercus Entrance Scholar</strong>, the university's award for top-percentile incoming students.</p>
+        <p>Ben has helped hundreds of Irish students with HL Physics and HL Chemistry. Same Zoom Webinar standard as the maths classes. Every concept and exam question type covered live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you get -->
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px;">
+      <span class="eyebrow">What you get</span>
+      <h2 style="margin:0;">Built to move your grade.</h2>
+    </div>
+    <div class="bullet-card">
+      <ul>
+        <li>15+ hours of live teaching per subject on Zoom Webinar</li>
+        <li>You only see Ben, no chat to distract you</li>
+        <li>Full class recordings, timestamped for easy review</li>
+        <li>Full course notes: concise but complete coverage of HL Physics and HL Chemistry</li>
+        <li>Mandatory experiments and exam technique covered in depth</li>
+        <li>Q&amp;A turned on the whole class so no question goes unanswered</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg-2);border-top:1px solid rgba(45,212,191,.08);border-bottom:1px solid rgba(45,212,191,.08);">
+  <div class="wrap" style="max-width:760px;">
+    <div class="center" style="margin-bottom:24px;"><span class="eyebrow">FAQ</span><h2 style="margin:0;">Common questions.</h2></div>
+    <details class="faq-item"><summary>Why no single class option?</summary><div class="faq-body">Physics and Chemistry build sequentially. Topics covered on Day 2 reference Day 1, and the exam paper classes reference both masterclasses. You get the most value from doing the whole bundle so we only sell it that way.</div></details>
+    <details class="faq-item"><summary>How does the class work?</summary><div class="faq-body">It's a live Zoom Webinar. You join from anywhere on phone, laptop or tablet. You only see and hear Ben. Your camera and mic stay off. The Q&amp;A panel is on for the whole class so you can drop a question anytime and get an answer live.</div></details>
+    <details class="faq-item"><summary>What if I miss part of a class?</summary><div class="faq-body">Every class is recorded. You get the full replay so you can rewatch or catch up whenever you need to.</div></details>
+    <details class="faq-item"><summary>Do I get notes?</summary><div class="faq-body">Yes. You get full course notes for whichever bundle you take, concise but complete coverage of the HL syllabus. Keep them for the run up to the exam.</div></details>
+    <details class="faq-item"><summary>What's the difference between buying each subject and the combined bundle?</summary><div class="faq-body">Each subject is €50 on its own. The combined bundle is €80 if you're taking both, so you save €20 by buying them together.</div></details>
+  </div>
+</section>
+
+<!-- Final CTA: repeat bundle tiles -->
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px;">
+      <span class="eyebrow">Lock it in</span>
+      <h2 style="margin:0;">Pick your bundle and we'll see you Tuesday.</h2>
+    </div>
+    <div class="bundle-grid">
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Physics Bundle</div>
+        <h3>HL Physics</h3>
+        <p>3 sessions across May and June.</p>
+        <div class="b-price">€50</div>
+        <a class="b-cta" href="https://buy.stripe.com/dRm28jai33VqbmE28B2ZO20">Secure your seat for €50 →</a>
+      </div>
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Sciences Combined</div>
+        <h3>Physics + Chemistry</h3>
+        <p>Both subjects together. 6 sessions.</p>
+        <div class="b-price">€80</div>
+        <a class="b-cta" href="https://buy.stripe.com/fZu8wHcqbgIc0I0eVn2ZO2v">Secure your seat for €80 →</a>
+      </div>
+      <div class="bundle-tile">
+        <div class="b-eyebrow">Chemistry Bundle</div>
+        <h3>HL Chemistry</h3>
+        <p>3 sessions across May and June.</p>
+        <div class="b-price">€50</div>
+        <a class="b-cta" href="https://buy.stripe.com/eVqaEPgGreA4fCUbJb2ZO21">Secure your seat for €50 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-inner">
+      <ul class="foot-links">
+        <li><a href="/">Home</a></li><li><a href="/earlybird">Crash Courses</a></li><li><a href="/one-to-one">Summer Grinds</a></li><li><a href="/refund-policy">Refund Policy</a></li>
+      </ul>
+      <div class="foot-socials">
+        <a href="https://instagram.com/chezegrinds" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://tiktok.com/@chezegrinds" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 7.6a6.7 6.7 0 0 1-4-1.3v8.5a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3a2.7 2.7 0 1 0 1.8 2.6V2h2.9a4.7 4.7 0 0 0 4.1 4.6v3z"/></svg></a>
+        <a href="https://www.facebook.com/share/1Agh1zfPnK/" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.3v3.2H10V22h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-copy">Cheze Grinds · Maths grinds and exam performance · chezegrinds.com</div>
+  </div>
+</footer>
+
+<a class="sticky-mobile" href="#bundles">Secure Your Seat →</a>
+
+<script>
+document.getElementById('burger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open');});
+function pad(n){return n<10?'0'+n:''+n}
+const physTarget=new Date("2026-05-26T15:00:00+01:00").getTime();
+const chemTarget=new Date("2026-05-29T15:00:00+01:00").getTime();
+const physWrap=document.getElementById('physCountdownWrap'),chemWrap=document.getElementById('chemCountdownWrap');
+function tickOne(target,wrap,dId,hId,mId,sId){const diff=target-Date.now();if(diff<=0){wrap.style.display='none';return}const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);document.getElementById(dId).textContent=pad(d);document.getElementById(hId).textContent=pad(h);document.getElementById(mId).textContent=pad(m);document.getElementById(sId).textContent=pad(s)}
+function tick(){tickOne(physTarget,physWrap,'phys-d','phys-h','phys-m','phys-s');tickOne(chemTarget,chemWrap,'chem-d','chem-h','chem-m','chem-s')}
+tick();setInterval(tick,1000);
+</script>
+
+</body>
+</html>
