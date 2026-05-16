@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cheze Grinds — Leaving Cert &amp; Junior Cert Maths, Physics &amp; Chemistry</title>
-<meta name="description" content="Cheze Grinds — Live online Leaving Cert and Junior Cert grinds. Maths, Physics, Chemistry and Applied Maths. 600+ students helped. 4.9★ Google rated. Crash courses running 23 May to 20 June." />
+<meta name="description" content="Cheze Grinds — Live online Leaving Cert and Junior Cert grinds. Maths, Physics, Chemistry and JC HL Maths. 600+ students helped. 4.9★ Google rated. Crash courses running 23 May to 20 June." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -23,32 +23,29 @@
     --muted: #93a4bf;
     --accent: #2dd4bf;
     --accent-soft: rgba(45, 212, 191, 0.12);
-    --danger: #ff5d6c;
     --warn: #ffb547;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: radial-gradient(1200px 600px at 80% -200px, rgba(45, 212, 191, 0.08), transparent 60%),
-                radial-gradient(900px 500px at -10% 30%, rgba(45, 212, 191, 0.05), transparent 60%),
+    background: radial-gradient(1200px 600px at 80% -200px, rgba(45,212,191,0.08), transparent 60%),
+                radial-gradient(900px 500px at -10% 30%, rgba(45,212,191,0.05), transparent 60%),
                 var(--bg);
     color: var(--text);
-    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, .montserrat { font-family: 'Montserrat', sans-serif; letter-spacing: -0.01em; }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; letter-spacing: -0.01em; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
   ul { list-style: none; padding: 0; margin: 0; }
 
   /* Announcement bar */
   .announce {
-    background: var(--brand-navy);
-    color: #fff;
-    min-height: 40px;
-    display: flex; align-items: center; justify-content: center;
+    background: var(--brand-navy); color: #fff;
+    min-height: 40px; display: flex; align-items: center; justify-content: center;
     font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
     text-align: center; padding: 8px 14px;
   }
@@ -66,7 +63,7 @@
     100% { box-shadow: 0 0 0 0 rgba(255, 42, 58, 0); }
   }
 
-  /* Navbar (matches chezegrinds.com) */
+  /* Navbar */
   .nav-wrap {
     position: sticky; top: 0; z-index: 40;
     background: #ffffff;
@@ -82,14 +79,32 @@
     font-size: 20px; color: var(--brand-navy); letter-spacing: -0.02em;
   }
   .nav-logo img { height: 40px; width: 40px; border-radius: 50%; }
-  .nav-logo > span { color: var(--brand-navy); }
-  .nav-logo > span > span { color: var(--brand-teal); }
+  .nav-logo .accent { color: var(--brand-teal); }
   .nav-links { display: flex; align-items: center; gap: 6px; }
-  .nav-links a {
+  .nav-links a, .nav-drop-btn {
     color: var(--brand-navy); font-size: 14px; font-weight: 700;
     padding: 8px 12px; border-radius: 6px; transition: background .15s ease;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
   }
-  .nav-links a:hover { background: #f1f5f9; }
+  .nav-links a:hover, .nav-drop-btn:hover { background: #f1f5f9; }
+  .nav-drop { position: relative; }
+  .nav-drop::after { content: ""; position: absolute; left: 0; top: 100%; width: 100%; height: 12px; }
+  .nav-dd {
+    position: absolute; top: calc(100% + 8px); left: 0;
+    background: #fff; border: 1px solid #eee; border-radius: 8px;
+    min-width: 210px; box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    opacity: 0; pointer-events: none; visibility: hidden;
+    transition: opacity .15s ease, visibility .15s ease;
+    z-index: 50; overflow: hidden;
+  }
+  .nav-drop:hover .nav-dd, .nav-drop:focus-within .nav-dd { opacity: 1; pointer-events: all; visibility: visible; }
+  .nav-dd a {
+    display: block; padding: 11px 16px; font-size: 14px; font-weight: 700;
+    color: var(--brand-navy); border-bottom: 1px solid #f5f5f5;
+  }
+  .nav-dd a:last-child { border-bottom: 0; }
+  .nav-dd a:hover { background: #f1f5f9; color: var(--brand-teal); }
+
   .nav-cta { display: flex; align-items: center; gap: 12px; }
   .nav-socials { display: flex; gap: 4px; }
   .nav-socials a {
@@ -120,17 +135,18 @@
     display: none; background: #fff; border-top: 1px solid #eee;
     padding: 12px 20px 18px;
   }
-  .mobile-menu a {
+  .mobile-menu a, .mobile-menu .mob-head {
     display: block; color: var(--brand-navy); font-weight: 700;
     padding: 10px 6px; border-bottom: 1px solid #f1f5f9;
   }
+  .mobile-menu .mob-head { color: var(--brand-teal); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding-top: 14px; border-bottom: 0; }
+  .mobile-menu .mob-sub { padding-left: 18px; font-weight: 700; }
   .mobile-menu a.btn-green { margin-top: 10px; text-align: center; }
 
-  /* Wrap */
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
   .section { padding: 72px 0; }
-  .section-tight { padding: 48px 0; }
   @media (max-width: 720px) { .section { padding: 56px 0; } }
+  .center { text-align: center; }
 
   .eyebrow {
     color: var(--accent);
@@ -138,7 +154,6 @@
     padding-bottom: 6px; border-bottom: 2px solid var(--accent);
     display: inline-block; margin: 0 0 18px; text-transform: uppercase;
   }
-  .center { text-align: center; }
   .center .eyebrow { margin-left: auto; margin-right: auto; }
   .sec-sub {
     color: var(--muted); font-size: 17px; margin: 0 auto 36px;
@@ -146,11 +161,9 @@
   }
 
   /* Hero */
-  .hero {
-    padding: 72px 0 60px; position: relative; overflow: hidden;
-  }
+  .hero { padding: 72px 0 60px; }
   .hero-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr;
+    display: grid; grid-template-columns: 1.15fr 1fr;
     gap: 48px; align-items: center;
   }
   @media (max-width: 880px) {
@@ -168,7 +181,7 @@
     margin: 0 0 28px; max-width: 540px;
   }
   .hero-btns {
-    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px;
   }
   .hero-btns a {
     display: inline-flex; align-items: center; gap: 8px;
@@ -176,16 +189,16 @@
     font-weight: 900; font-size: 15px; letter-spacing: 0.02em;
     transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
-  .hero-btns .h-primary {
+  .h-primary {
     background: var(--accent); color: #00251f;
-    box-shadow: 0 8px 22px rgba(45, 212, 191, 0.25);
+    box-shadow: 0 8px 22px rgba(45,212,191,0.25);
   }
-  .hero-btns .h-primary:hover { transform: translateY(-1px); }
-  .hero-btns .h-ghost {
+  .h-primary:hover { transform: translateY(-1px); }
+  .h-ghost {
     background: transparent; color: var(--text);
     border: 1px solid var(--border-strong);
   }
-  .hero-btns .h-ghost:hover { background: var(--accent-soft); }
+  .h-ghost:hover { background: var(--accent-soft); }
   .trust-row {
     display: flex; flex-wrap: wrap; gap: 14px 28px;
     align-items: center; color: var(--muted);
@@ -194,44 +207,37 @@
   .trust-row .stars { color: #ffd54a; letter-spacing: 1px; margin-right: 4px; }
   .trust-row b { color: var(--text); }
 
-  /* Hero card */
-  .hero-card {
+  /* Hero lineup card */
+  .lineup-card {
     background: linear-gradient(135deg, rgba(45,212,191,0.16), rgba(45,212,191,0.04));
     border: 1px solid var(--border-strong); border-radius: 18px;
-    padding: 26px; box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    padding: 22px; box-shadow: 0 16px 40px rgba(0,0,0,0.35);
   }
-  .hero-card .hc-eyebrow {
+  .lineup-card .lc-eyebrow {
     color: var(--accent); font-weight: 900;
     letter-spacing: 0.16em; font-size: 11px;
-    text-transform: uppercase; margin-bottom: 10px;
+    text-transform: uppercase; margin-bottom: 6px;
   }
-  .hero-card h3 {
-    margin: 0 0 8px; font-size: 22px; font-weight: 900;
+  .lineup-card h3 { margin: 0 0 14px; font-size: 20px; font-weight: 900; }
+  .lineup-list { display: grid; gap: 8px; }
+  .lineup-list a {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(11, 20, 36, 0.55);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 13px 16px;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
   }
-  .hero-card .hc-line { color: var(--muted); font-size: 14.5px; margin-bottom: 4px; }
-  .hero-card .hc-strike { color: var(--muted); text-decoration: line-through; font-size: 14px; margin-left: 8px; }
-  .hero-card ul.hc-list {
-    margin: 14px 0 18px; padding: 0;
+  .lineup-list a:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+    background: rgba(45,212,191,0.08);
   }
-  .hero-card ul.hc-list li {
-    color: var(--text); font-size: 14.5px; padding: 6px 0 6px 24px;
-    position: relative;
-  }
-  .hero-card ul.hc-list li::before {
-    content: "✓"; position: absolute; left: 0; top: 6px;
-    color: var(--accent); font-weight: 900;
-  }
-  .hero-card .hc-cta {
-    display: block; text-align: center;
-    background: var(--accent); color: #00251f;
-    padding: 13px 18px; border-radius: 999px;
-    font-weight: 900; font-size: 14.5px; letter-spacing: 0.02em;
-    transition: transform .15s ease;
-  }
-  .hero-card .hc-cta:hover { transform: translateY(-1px); }
-  .hero-card .hc-close { color: var(--warn); font-size: 12px; font-weight: 800; margin-top: 10px; text-align: center; }
+  .lu-left { display: flex; flex-direction: column; }
+  .lu-title { font-weight: 800; font-size: 15px; }
+  .lu-date { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .lu-right { color: var(--accent); font-weight: 900; font-size: 14px; white-space: nowrap; }
 
-  /* Sub band */
+  /* Stat band */
   .sub-band {
     background: var(--bg-2); border-top: 1px solid rgba(45,212,191,0.08);
     border-bottom: 1px solid rgba(45,212,191,0.08);
@@ -242,40 +248,50 @@
     gap: 16px; text-align: center;
   }
   @media (max-width: 760px) { .sub-band-inner { grid-template-columns: 1fr 1fr; } }
-  .sub-band .sb-num {
+  .sb-num {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px; font-weight: 900; color: var(--accent);
   }
-  .sub-band .sb-lbl {
+  .sb-lbl {
     color: var(--muted); font-size: 12px; letter-spacing: 0.1em;
     text-transform: uppercase; font-weight: 700; margin-top: 4px;
   }
 
-  /* What we teach */
-  .teach-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  /* Subject cards */
+  .subj-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
   }
-  @media (max-width: 880px) { .teach-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 540px) { .teach-grid { grid-template-columns: 1fr; } }
-  .teach-card {
+  @media (max-width: 720px) { .subj-grid { grid-template-columns: 1fr; } }
+  .subj-card {
     background: var(--card); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 14px; padding: 22px;
+    border-radius: 16px; padding: 24px; display: flex; flex-direction: column;
     transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
   }
-  .teach-card:hover {
+  .subj-card:hover {
     border-color: var(--accent); transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(45, 212, 191, 0.15);
   }
-  .teach-card h4 {
-    margin: 0 0 6px; font-size: 17px; font-weight: 800;
+  .subj-eyebrow {
+    color: var(--accent); font-weight: 900;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 8px;
   }
-  .teach-card p { margin: 0; color: var(--muted); font-size: 14.5px; }
-  .teach-icon {
-    width: 44px; height: 44px; background: var(--accent-soft);
-    border-radius: 12px; color: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 12px;
+  .subj-card h3 { margin: 0 0 6px; font-size: 22px; font-weight: 900; }
+  .subj-card .desc { color: var(--muted); font-size: 14.5px; margin: 0 0 14px; flex: 1; }
+  .subj-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-bottom: 14px; }
+  .subj-meta span {
+    background: rgba(45,212,191,0.08); border: 1px solid var(--border);
+    color: var(--text); font-size: 12.5px; font-weight: 700;
+    padding: 5px 10px; border-radius: 999px;
   }
+  .subj-cta {
+    align-self: flex-start;
+    background: var(--accent); color: #00251f;
+    padding: 10px 18px; border-radius: 999px;
+    font-weight: 900; font-size: 13.5px; letter-spacing: 0.02em;
+    transition: transform .15s ease;
+  }
+  .subj-cta:hover { transform: translateY(-1px); }
 
   /* Founder */
   .founder-grid {
@@ -294,9 +310,7 @@
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 16px 40px rgba(0,0,0,0.4);
   }
-  .founder-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
-  }
+  .founder-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
   .founder-photo-fallback {
     font-family: 'Montserrat', sans-serif; font-weight: 900;
     font-size: 96px; color: var(--accent);
@@ -307,21 +321,16 @@
     font-size: 13px; letter-spacing: 0.12em;
     text-transform: uppercase; margin-bottom: 10px;
   }
-  .founder .bq {
-    border-left: 3px solid var(--accent); padding: 4px 0 4px 16px;
-    color: var(--text); font-style: italic; font-size: 17px;
-    margin: 0 0 16px; line-height: 1.55;
-  }
   .founder p { color: var(--muted); font-size: 16px; margin: 0 0 12px; line-height: 1.7; }
   .founder p strong { color: var(--text); }
-  .founder .founder-cta {
+  .founder-cta {
     display: inline-block; margin-top: 8px;
     background: var(--accent); color: #00251f;
     padding: 13px 24px; border-radius: 999px;
     font-weight: 900; font-size: 14.5px;
     transition: transform .15s ease;
   }
-  .founder .founder-cta:hover { transform: translateY(-1px); }
+  .founder-cta:hover { transform: translateY(-1px); }
 
   /* Reviews */
   .gr-rating-box {
@@ -345,11 +354,9 @@
   @media (max-width: 880px) { .rev-grid { grid-template-columns: 1fr; } }
   .rev-card {
     background: var(--card); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 14px; padding: 22px; text-align: left;
+    border-radius: 14px; padding: 22px;
   }
-  .rev-head {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
-  }
+  .rev-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
   .rev-avatar {
     width: 40px; height: 40px; border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), #0f766e);
@@ -370,20 +377,6 @@
   }
   .rev-cta:hover { background: var(--accent-soft); }
 
-  /* Wall of proof — screenshots on home */
-  .wall-imgs-home {
-    max-width: 560px; margin: 40px auto 0; display: grid; gap: 16px;
-  }
-  .wall-imgs-home .wih-eyebrow {
-    text-align: center; color: var(--muted); font-size: 13px;
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin: 0 0 4px;
-  }
-  .wall-imgs-home img {
-    width: 100%; height: auto; display: block;
-    border-radius: 12px; background: #0a0f1c;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-  }
-
   /* CTA band */
   .cta-band {
     background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(45,212,191,0.05));
@@ -391,12 +384,8 @@
     padding: 48px 32px; text-align: center;
   }
   .cta-band h2 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 38px); }
-  .cta-band p {
-    color: var(--muted); margin: 0 auto 24px; max-width: 540px; font-size: 17px;
-  }
-  .cta-band .cta-btns {
-    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-  }
+  .cta-band p { color: var(--muted); margin: 0 auto 24px; max-width: 540px; font-size: 17px; }
+  .cta-band .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .cta-band .cta-primary {
     background: var(--accent); color: #00251f;
     padding: 14px 26px; border-radius: 999px;
@@ -448,7 +437,7 @@
 <!-- Announcement bar -->
 <div class="announce">
   <span class="pulse"></span>
-  <span>Early Bird closes Sat 16 May at midnight — <a href="/earlybird">Lock in your crash course →</a></span>
+  <span>Live crash courses running 23 May to 20 June. <a href="#crash-courses">See the lineup</a></span>
 </div>
 
 <!-- Navbar -->
@@ -456,11 +445,21 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo">
       <img src="chezelogo.png" alt="Cheze Grinds" onerror="this.style.display='none'" />
-      <span>Cheze <span style="color:var(--brand-teal);">Grinds</span></span>
+      <span>Cheze <span class="accent">Grinds</span></span>
     </a>
     <nav class="nav-links">
       <a href="/">Home</a>
-      <a href="/earlybird">May &amp; June Crash Courses</a>
+      <div class="nav-drop">
+        <span class="nav-drop-btn">Crash Courses
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="nav-dd">
+          <a href="/hlmaths">LC HL Maths</a>
+          <a href="/olmaths">LC OL Maths</a>
+          <a href="/jcmaths">JC HL Maths</a>
+          <a href="/sciences">Physics &amp; Chemistry</a>
+        </div>
+      </div>
       <a href="/one-to-one">Summer Grinds</a>
     </nav>
     <div class="nav-cta">
@@ -475,7 +474,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.3v3.2H10V22h3z"/></svg>
         </a>
       </div>
-      <a href="/earlybird" class="btn-green">Crash Courses →</a>
+      <a href="#crash-courses" class="btn-green">Secure Your Seat →</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -483,9 +482,13 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
-    <a href="/earlybird">May &amp; June Crash Courses</a>
+    <div class="mob-head">Crash Courses</div>
+    <a href="/hlmaths" class="mob-sub">LC HL Maths</a>
+    <a href="/olmaths" class="mob-sub">LC OL Maths</a>
+    <a href="/jcmaths" class="mob-sub">JC HL Maths</a>
+    <a href="/sciences" class="mob-sub">Physics &amp; Chemistry</a>
     <a href="/one-to-one">Summer Grinds</a>
-    <a href="/earlybird" class="btn-green">Crash Courses →</a>
+    <a href="#crash-courses" class="btn-green">Secure Your Seat →</a>
   </div>
 </header>
 
@@ -495,37 +498,58 @@
     <div class="hero-grid">
       <div>
         <span class="eyebrow">Cheze Grinds · Live Online</span>
-        <h1>Close the gap between knowing it and <em>showing it on exam day.</em></h1>
-        <p class="hero-sub">Leaving Cert &amp; Junior Cert Maths, Physics and Chemistry — taught live on Zoom Webinar by specialists. We work until the entire course is finished. Every question gets answered.</p>
+        <h1>Crash courses that close the gap between knowing it and <em>showing it on exam day.</em></h1>
+        <p class="hero-sub">Live Leaving Cert and Junior Cert grinds on Zoom Webinar. Q&amp;A on the whole class so no question goes unanswered. Pay per class from €20 or grab the full subject bundle.</p>
         <div class="hero-btns">
-          <a href="/earlybird" class="h-primary">Lock in Early Bird →</a>
-          <a href="#reviews" class="h-ghost">See real student results</a>
+          <a href="#crash-courses" class="h-primary">See the lineup →</a>
+          <a href="#reviews" class="h-ghost">Real student results</a>
         </div>
         <div class="trust-row">
           <span><span class="stars">★★★★★</span> <b>4.9</b> Google rating</span>
           <span><b>600+</b> students helped</span>
-          <span><b>3+</b> grade jumps on average</span>
+          <span><b>2+</b> grade jumps on average</span>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="hc-eyebrow">May &amp; June Crash Courses</div>
-        <h3>End of Year Crash Courses</h3>
-        <div class="hc-line">23 May to 20 June · Live on Zoom Webinar</div>
-        <ul class="hc-list">
-          <li>HL/OL Maths bundle <strong>€50</strong> <span class="hc-strike">€80</span></li>
-          <li>Physics &amp; Chem bundle <strong>€40</strong> <span class="hc-strike">€60</span></li>
-          <li>HL Applied Maths <strong>€40</strong> <span class="hc-strike">€60</span></li>
-          <li>JC HL Maths <strong>€15</strong> <span class="hc-strike">€20</span></li>
-        </ul>
-        <a class="hc-cta" href="/earlybird">View timetable &amp; pay →</a>
-        <div class="hc-close">Early Bird closes Sat 16 May at midnight</div>
+      <div class="lineup-card">
+        <div class="lc-eyebrow">First classes</div>
+        <h3>Crash course lineup</h3>
+        <div class="lineup-list">
+          <a href="/hlmaths">
+            <span class="lu-left">
+              <span class="lu-title">LC HL Maths</span>
+              <span class="lu-date">Full subject · 4 sessions</span>
+            </span>
+            <span class="lu-right">From €20 →</span>
+          </a>
+          <a href="/olmaths">
+            <span class="lu-left">
+              <span class="lu-title">LC OL Maths</span>
+              <span class="lu-date">Full subject · 4 sessions</span>
+            </span>
+            <span class="lu-right">From €20 →</span>
+          </a>
+          <a href="/sciences">
+            <span class="lu-left">
+              <span class="lu-title">HL Physics &amp; Chemistry</span>
+              <span class="lu-date">Full subjects · 3 sessions each</span>
+            </span>
+            <span class="lu-right">From €50 →</span>
+          </a>
+          <a href="/jcmaths">
+            <span class="lu-left">
+              <span class="lu-title">JC HL Maths</span>
+              <span class="lu-date">Exam papers class</span>
+            </span>
+            <span class="lu-right">€20 →</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Stat sub-band -->
+<!-- Stat band -->
 <div class="sub-band">
   <div class="wrap">
     <div class="sub-band-inner">
@@ -538,7 +562,7 @@
         <div class="sb-lbl">Google Rating</div>
       </div>
       <div>
-        <div class="sb-num">3+</div>
+        <div class="sb-num">2+</div>
         <div class="sb-lbl">Avg Grade Jumps</div>
       </div>
       <div>
@@ -549,62 +573,63 @@
   </div>
 </div>
 
-<!-- What we teach -->
-<section class="section">
+<!-- Crash courses lineup -->
+<section class="section" id="crash-courses">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">What we cover</span>
-      <h2 style="margin:0 0 14px;">Every subject. Every question type.</h2>
-      <p class="sec-sub">Specialist teachers covering LC Maths, LC Physics, LC Chemistry, Applied Maths and JC HL Maths — the full syllabus and every type of exam question.</p>
+      <span class="eyebrow">Pick your subject</span>
+      <h2 style="margin:0 0 14px;">Live crash courses, one subject at a time.</h2>
+      <p class="sec-sub">Every class is 6+ hours of live teaching on Zoom Webinar. Pay per class or save with the full subject bundle. Recordings, notes and marking schemes included.</p>
     </div>
 
-    <div class="teach-grid">
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    <div class="subj-grid">
+      <a href="/hlmaths" class="subj-card">
+        <div class="subj-eyebrow">LC Higher Level Maths</div>
+        <h3>HL Maths Crash Course</h3>
+        <p class="desc">Paper 1 and Paper 2 Masterclasses plus 2 Exam Paper classes. Every concept, every answering technique, every type of exam question.</p>
+        <div class="subj-meta">
+          <span>4 sessions</span>
+          <span>24+ hours</span>
+          <span>First class Sat 23 May</span>
         </div>
-        <h4>LC Maths (HL &amp; OL)</h4>
-        <p>Full Paper 1 + Paper 2 masterclasses plus dedicated Exam Papers classes. Every concept and answering technique.</p>
-      </div>
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h4>HL Physics</h4>
-        <p>Two full-day masterclasses + exam papers class. Taught by a specialist with 100% in LC Physics.</p>
-      </div>
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6l-4 8a4 4 0 0 0 4 6h6a4 4 0 0 0 4-6l-4-8V2"/><line x1="9" y1="2" x2="15" y2="2"/></svg>
-        </div>
-        <h4>HL Chemistry</h4>
-        <p>Full topic breakdown across two days, then exam paper drills. Taught by a 100% LC Chemistry specialist.</p>
-      </div>
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
-        </div>
-        <h4>HL Applied Maths</h4>
-        <p>3-day crash course (18 to 20 June). Every chapter, every method, exam-ready technique.</p>
-      </div>
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15a2.5 2.5 0 0 1 2.5-2.5H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-        </div>
-        <h4>JC HL Maths</h4>
-        <p>1 June Exam Papers class — every question type covered before the JC exam.</p>
-      </div>
-      <div class="teach-card">
-        <div class="teach-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-        </div>
-        <h4>1-to-1 Support</h4>
-        <p>Personal grinds for students who need a tailored plan. Limited slots — DM to enquire.</p>
-      </div>
-    </div>
+        <span class="subj-cta">See HL Maths →</span>
+      </a>
 
-    <div style="text-align:center; margin-top:32px;">
-      <a href="/earlybird" class="btn-green" style="padding:14px 28px !important; font-size:15px !important;">See the full crash course timetable →</a>
+      <a href="/olmaths" class="subj-card">
+        <div class="subj-eyebrow">LC Ordinary Level Maths</div>
+        <h3>OL Maths Crash Course</h3>
+        <p class="desc">Full topic revision across both papers with exam-ready answering technique. Built for students chasing the H6 to H2 jump and grade bumps in OL.</p>
+        <div class="subj-meta">
+          <span>4 sessions</span>
+          <span>24+ hours</span>
+          <span>First class Mon 25 May</span>
+        </div>
+        <span class="subj-cta">See OL Maths →</span>
+      </a>
+
+      <a href="/sciences" class="subj-card">
+        <div class="subj-eyebrow">LC HL Physics &amp; Chemistry</div>
+        <h3>Physics &amp; Chemistry</h3>
+        <p class="desc">Taught by Ben Cullinane who got 99% in LC Physics and 100% in LC Chemistry. Full course masterclasses plus exam paper drills for each subject.</p>
+        <div class="subj-meta">
+          <span>3 sessions per subject</span>
+          <span>15+ hours each</span>
+          <span>From Tue 26 May</span>
+        </div>
+        <span class="subj-cta">See Sciences →</span>
+      </a>
+
+      <a href="/jcmaths" class="subj-card">
+        <div class="subj-eyebrow">JC Higher Level Maths</div>
+        <h3>JC HL Maths Exam Papers</h3>
+        <p class="desc">One full-day class working the course through real exam papers. Algebra, functions, geometry, trigonometry, stats, probability, sets and financial maths.</p>
+        <div class="subj-meta">
+          <span>1 session</span>
+          <span>6+ hours</span>
+          <span>€20</span>
+        </div>
+        <span class="subj-cta">See JC HL Maths →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -614,15 +639,15 @@
   <div class="wrap">
     <div class="founder-grid">
       <div class="founder-photo">
-        <img src="cheze.JPG" alt="Chisom Eze — Founder, Cheze Grinds" onerror="this.onerror=null; this.src='chisom.jpeg';" />
+        <img src="chisom.jpeg" alt="Chisom Eze — Founder, Cheze Grinds" onerror="this.outerHTML='<div class=&quot;founder-photo-fallback&quot;>CE</div>'" />
       </div>
       <div class="founder">
         <span class="eyebrow">Meet the founder</span>
         <h2>Chisom Eze</h2>
         <div class="role">Founder · Cheze Grinds</div>
-        <p>Chisom went from <strong>418 points in the mocks to 601 in the Leaving Cert</strong> — a 183-point jump in under three months. He built Cheze Grinds around that same playbook and has since worked directly with <strong>over 600 Irish students</strong>.</p>
-        <p>The focus isn't just covering the syllabus — it's building the habits, structure and exam technique that turn consistent effort into consistent results.</p>
-        <a href="/earlybird" class="founder-cta">See the crash courses →</a>
+        <p>Chisom went from <strong>418 points in his mocks to 601 in the Leaving Cert</strong>. That jump is the reason Cheze Grinds exists. He has worked directly with <strong>over 600 Irish students</strong>, closing the gap between what a student knows and what they can show on exam day.</p>
+        <p>The focus is not just covering the syllabus. It is building the habits, structure and exam technique that turn consistent effort into consistent results.</p>
+        <a href="#crash-courses" class="founder-cta">See the crash courses →</a>
       </div>
     </div>
   </div>
@@ -691,33 +716,27 @@
     <div class="center">
       <span class="eyebrow">What students say</span>
       <h2 style="margin:0 0 14px;">Real results from Irish students.</h2>
-      <p class="sec-sub">Over 600 students have been through our classes. Here's a snapshot of what they had to say after the exams.</p>
+      <p class="sec-sub">Over 600 students have been through our classes. Here is a snapshot of what they had to say after the exams.</p>
     </div>
     <div class="rev-grid">
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"You saved life's Cheze man. Whenever I was answering that paper I would think of how you would break it down."</p>
-        <div class="rev-name" style="margin-top:12px;">Ciarán — HL Maths</div>
+        <div class="rev-name" style="margin-top:12px;">Ciarán · HL Maths</div>
         <div class="rev-meta">Leaving Cert 2025</div>
       </div>
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"Went from a H6 in the mocks to H2 in the actual thing. Your classes and teaching really helped."</p>
-        <div class="rev-name" style="margin-top:12px;">Darragh — HL Maths</div>
+        <div class="rev-name" style="margin-top:12px;">Darragh · HL Maths</div>
         <div class="rev-meta">Leaving Cert 2025</div>
       </div>
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"I just wanted to say a big thank you for your time and effort you put in for our Maths course. We got that H1!"</p>
-        <div class="rev-name" style="margin-top:12px;">Aoife — HL Maths</div>
+        <div class="rev-name" style="margin-top:12px;">Aoife · HL Maths</div>
         <div class="rev-meta">Leaving Cert 2025</div>
       </div>
-    </div>
-
-    <div class="wall-imgs-home">
-      <p class="wih-eyebrow">Unfiltered — straight from the inbox after the exams</p>
-      <img src="reviews1.jpg" alt="Real student thank-you messages from last year's crash courses" loading="lazy" />
-      <img src="reviews3.jpg" alt="More real student messages — grade jumps and exam wins" loading="lazy" />
     </div>
   </div>
 </section>
@@ -726,11 +745,11 @@
 <section class="section">
   <div class="wrap">
     <div class="cta-band">
-      <span class="eyebrow">Early Bird closes Sat 16 May</span>
-      <h2>Spots are filling. Lock yours in now.</h2>
-      <p>HL/OL Maths €50 · Physics &amp; Chem €40 · Applied Maths €40 · JC HL Maths €15. After midnight Saturday, public price kicks in. No extensions.</p>
+      <span class="eyebrow">Crash courses · 23 May to 20 June</span>
+      <h2>Pick your subject. Secure your seat.</h2>
+      <p>Pay per class from €20 or save with the full subject bundle. Live on Zoom Webinar with Q&amp;A on the whole class. Recordings and notes included.</p>
       <div class="cta-btns">
-        <a href="/earlybird" class="cta-primary">View timetable &amp; pay →</a>
+        <a href="#crash-courses" class="cta-primary">See the lineup →</a>
         <a href="/one-to-one" class="cta-ghost">Summer Grinds</a>
       </div>
     </div>
@@ -743,7 +762,10 @@
     <div class="foot-inner">
       <ul class="foot-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/earlybird">May &amp; June Crash Courses</a></li>
+        <li><a href="/hlmaths">LC HL Maths</a></li>
+        <li><a href="/olmaths">LC OL Maths</a></li>
+        <li><a href="/jcmaths">JC HL Maths</a></li>
+        <li><a href="/sciences">Physics &amp; Chemistry</a></li>
         <li><a href="/one-to-one">Summer Grinds</a></li>
         <li><a href="/refund-policy">Refund Policy</a></li>
       </ul>
