@@ -46,6 +46,7 @@
   .schedule-grid{display:grid;gap:10px;max-width:680px;margin:0 auto;}
   .row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
   .row .date{color:var(--muted);font-size:14px;font-weight:700;} .row .title{font-weight:800;font-size:15.5px;}
+  .row-sub{color:var(--muted);font-size:13.5px;margin-top:6px;max-width:520px;line-height:1.45;}
   .explain{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;max-width:720px;margin:0 auto;}
   .explain .etype{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;}
   .explain h3{font-size:18px;font-weight:800;margin-bottom:10px;}
@@ -98,10 +99,9 @@
           <li>Full course + exam papers</li>
         </ul>
         <ul class="covers">
-          <li>Mechanics, forces, friction</li>
-          <li>Linear and projectile motion</li>
-          <li>Momentum, collisions, circular motion</li>
-          <li>Differential equations and SHM</li>
+          <li>Day 1: All mechanics</li>
+          <li>Day 2: Differential equations, differentiation and calculus</li>
+          <li>Day 3: Networks, graphs and extra mechanics</li>
         </ul>
         <div class="price">€50</div>
         <a href="https://buy.stripe.com/8x25kv89V77CduM14x2ZO22" class="register">Register</a>
@@ -116,15 +116,11 @@
     <div class="explain">
       <div class="etype">3 Day Crash Course</div>
       <h3>Full course, taught back to back</h3>
-      <p>Three full live days covering every topic on the LC HL Applied Maths course. Every method, every formula, every answering technique broken down so you walk into the exam knowing exactly what to do on every question. Full notes on every section sent after.</p>
+      <p>Three full live days covering every topic on the LC HL Applied Maths course. Every concept explained until it fully clicks, every method broken down, every type of exam question worked through.</p>
       <ul>
-        <li>Linear motion, projectile motion, relative velocity</li>
-        <li>Newton's laws, connected particles, friction</li>
-        <li>Momentum, collisions, impulse</li>
-        <li>Circular motion and simple harmonic motion</li>
-        <li>Statics and hydrostatics</li>
-        <li>Differential equations</li>
-        <li>Every type of exam question worked live</li>
+        <li>Day 1: All mechanics</li>
+        <li>Day 2: Differential equations, differentiation and calculus</li>
+        <li>Day 3: Networks and graphs, plus extra mechanics where needed</li>
       </ul>
     </div>
   </div>
@@ -134,9 +130,27 @@
   <div class="wrap">
     <div class="schedule-head"><h2>Full schedule</h2></div>
     <div class="schedule-grid">
-      <div class="row"><div class="date">Thu 18 June, 3pm</div><div class="title">Applied Maths Day 1</div></div>
-      <div class="row"><div class="date">Fri 19 June, 3pm</div><div class="title">Applied Maths Day 2</div></div>
-      <div class="row"><div class="date">Sat 20 June, 3pm</div><div class="title">Applied Maths Day 3</div></div>
+      <div class="row">
+        <div class="row-left">
+          <div class="date">Thu 18 June, 3pm</div>
+          <div class="title">Applied Maths Day 1</div>
+          <div class="row-sub">All mechanics. Every concept fully explained and understood.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-left">
+          <div class="date">Fri 19 June, 3pm</div>
+          <div class="title">Applied Maths Day 2</div>
+          <div class="row-sub">Differential equations, differentiation and calculus. Every concept fully explained and understood.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-left">
+          <div class="date">Sat 20 June, 3pm</div>
+          <div class="title">Applied Maths Day 3</div>
+          <div class="row-sub">Networks and graphs, plus extra mechanics coverage where needed. Every type of exam question worked through live.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
