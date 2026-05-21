@@ -101,7 +101,6 @@
 </head>
 <body>
 
-<div class="urgency-bar"><span class="pulse"></span><span>Class is Mon 1 June. Seats are filling fast. Lock yours in before it's full.</span></div>
 
 <header class="nav-wrap">
   <div class="nav-inner">
@@ -151,14 +150,7 @@
     <div class="hero-btns">
       <a href="https://buy.stripe.com/aFaeV5bm72RmfCUeVn2ZO23" class="btn-primary">Secure your seat for €20 →</a>
     </div>
-    <div class="countdown-wrap" id="countdownWrap">
-      <div class="countdown-label">Class starts in</div>
-      <div class="countdown" id="countdown">
-        <div class="cd-cell"><div class="cd-num" id="cd-d">0</div><div class="cd-lbl">Days</div></div>
-        <div class="cd-cell"><div class="cd-num" id="cd-h">0</div><div class="cd-lbl">Hours</div></div>
-        <div class="cd-cell"><div class="cd-num" id="cd-m">0</div><div class="cd-lbl">Mins</div></div>
-        <div class="cd-cell"><div class="cd-num" id="cd-s">0</div><div class="cd-lbl">Secs</div></div>
-      </div>
+    
     </div>
   </div>
 </section>
@@ -255,7 +247,6 @@
   </div>
 </footer>
 
-<a class="sticky-mobile" href="https://buy.stripe.com/aFaeV5bm72RmfCUeVn2ZO23">Secure your seat for €20 →</a>
 
 <style>
   .wa-float{position:fixed;right:18px;bottom:18px;z-index:100;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .15s ease;text-decoration:none}
@@ -271,11 +262,6 @@
 
 <script>
 document.getElementById('burger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open');});
-const targetDate=new Date("2026-06-01T15:00:00+01:00");
-const cdWrap=document.getElementById('countdownWrap'),dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s');
-function pad(n){return n<10?'0'+n:''+n}
-function tick(){const diff=targetDate.getTime()-Date.now();if(diff<=0){cdWrap.style.display='none';return}const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);dEl.textContent=pad(d);hEl.textContent=pad(h);mEl.textContent=pad(m);sEl.textContent=pad(s)}
-tick();setInterval(tick,1000);
 </script>
 
 </body>

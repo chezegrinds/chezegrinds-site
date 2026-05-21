@@ -109,7 +109,6 @@
 </head>
 <body>
 
-<div class="urgency-bar"><span class="pulse"></span><span>Physics kicks off Tue 26 May. Chemistry kicks off Fri 29 May. Seats are filling fast.</span></div>
 
 <header class="nav-wrap">
   <div class="nav-inner">
@@ -156,23 +155,9 @@
     <p class="hero-sub">Live HL Physics and HL Chemistry crash courses on Zoom Webinar. Taught by Ben Cullinane, who got <strong>99% in LC Physics</strong> and <strong>100% in LC Chemistry</strong>. Two full course masterclasses plus an exam papers class per subject.</p>
     <div class="when-line"><span class="dot"></span><span>Physics first class · <b>Tue 26 May 2026</b> · 3pm  |  Chemistry first class · <b>Fri 29 May 2026</b> · 3pm</span></div>
     <div class="countdown-pair">
-      <div class="countdown-wrap" id="physCountdownWrap">
-        <div class="countdown-label"><b>Physics</b> Day 1 starts in</div>
-        <div class="countdown">
-          <div class="cd-cell"><div class="cd-num" id="phys-d">0</div><div class="cd-lbl">Days</div></div>
-          <div class="cd-cell"><div class="cd-num" id="phys-h">0</div><div class="cd-lbl">Hours</div></div>
-          <div class="cd-cell"><div class="cd-num" id="phys-m">0</div><div class="cd-lbl">Mins</div></div>
-          <div class="cd-cell"><div class="cd-num" id="phys-s">0</div><div class="cd-lbl">Secs</div></div>
-        </div>
+      
       </div>
-      <div class="countdown-wrap" id="chemCountdownWrap">
-        <div class="countdown-label"><b>Chemistry</b> Day 1 starts in</div>
-        <div class="countdown">
-          <div class="cd-cell"><div class="cd-num" id="chem-d">0</div><div class="cd-lbl">Days</div></div>
-          <div class="cd-cell"><div class="cd-num" id="chem-h">0</div><div class="cd-lbl">Hours</div></div>
-          <div class="cd-cell"><div class="cd-num" id="chem-m">0</div><div class="cd-lbl">Mins</div></div>
-          <div class="cd-cell"><div class="cd-num" id="chem-s">0</div><div class="cd-lbl">Secs</div></div>
-        </div>
+      
       </div>
     </div>
   </div>
@@ -409,7 +394,6 @@
   </div>
 </footer>
 
-<a class="sticky-mobile" href="#bundles">Secure Your Seat →</a>
 
 <style>
   .wa-float{position:fixed;right:18px;bottom:18px;z-index:100;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .15s ease;text-decoration:none}
@@ -425,13 +409,6 @@
 
 <script>
 document.getElementById('burger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open');});
-function pad(n){return n<10?'0'+n:''+n}
-const physTarget=new Date("2026-05-26T15:00:00+01:00").getTime();
-const chemTarget=new Date("2026-05-29T15:00:00+01:00").getTime();
-const physWrap=document.getElementById('physCountdownWrap'),chemWrap=document.getElementById('chemCountdownWrap');
-function tickOne(target,wrap,dId,hId,mId,sId){const diff=target-Date.now();if(diff<=0){wrap.style.display='none';return}const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);document.getElementById(dId).textContent=pad(d);document.getElementById(hId).textContent=pad(h);document.getElementById(mId).textContent=pad(m);document.getElementById(sId).textContent=pad(s)}
-function tick(){tickOne(physTarget,physWrap,'phys-d','phys-h','phys-m','phys-s');tickOne(chemTarget,chemWrap,'chem-d','chem-h','chem-m','chem-s')}
-tick();setInterval(tick,1000);
 </script>
 
 </body>
