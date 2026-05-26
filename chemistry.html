@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LC HL Chemistry — Cheze Grinds</title>
-<meta name="description" content="LC Higher Level Chemistry end of year crash course. Taught by Ben Cullinane, 100% in LC Chemistry." />
+<meta name="description" content="LC Higher Level Chemistry end of year crash course. Buy single days or the full course bundle. Taught by Ben Cullinane, 100% in LC Chemistry." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -30,34 +30,38 @@
   .hero .level{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;}
   .hero h1{font-size:clamp(36px,5.6vw,56px);line-height:1.05;font-weight:900;margin-bottom:14px;}
   .hero .sub{color:var(--muted);font-size:17px;max-width:560px;margin:0 auto;}
-  .cards-single{max-width:480px;margin:0 auto;}
-  .card{background:var(--card);border:1px solid var(--accent);border-radius:14px;padding:28px;position:relative;}
-  .card .ctype{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;}
-  .card h3{font-size:22px;font-weight:900;margin-bottom:14px;}
-  .card .meta{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:14.5px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border);}
-  .card .meta b{color:var(--text);font-weight:700;}
-  .card .covers{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;font-size:14.5px;}
-  .card .covers li{padding-left:22px;position:relative;color:var(--text);}
-  .card .covers li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);font-weight:900;}
-  .card .price{font-family:'Montserrat';font-weight:900;font-size:36px;margin-bottom:16px;}
-  .card .register{display:block;background:var(--accent);color:#00251f;text-align:center;padding:12px 18px;border-radius:999px;font-weight:900;font-size:14.5px;}
-  .schedule-head,.explain-head{text-align:center;margin-bottom:24px;}
-  .schedule-head h2,.explain-head h2{font-size:clamp(24px,3.5vw,32px);font-weight:900;}
-  .schedule-head p,.explain-head p{color:var(--muted);font-size:15px;margin-top:8px;}
-  .schedule-grid{display:grid;gap:10px;max-width:680px;margin:0 auto;}
-  .row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .hero .rec-line{color:var(--accent);font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-top:14px;}
+  .schedule-head,.explain-head{text-align:center;margin-bottom:24px;} .schedule-head h2,.explain-head h2{font-size:clamp(24px,3.5vw,32px);font-weight:900;}
+  .schedule-head p{color:var(--muted);font-size:14.5px;margin-top:8px;}
+  .schedule-grid{display:grid;gap:10px;max-width:760px;margin:0 auto;}
+  .row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;transition:border-color .15s,transform .15s;}
+  a.row{text-decoration:none;color:inherit;}
+  a.row:hover{border-color:var(--accent);transform:translateY(-1px);}
   .row .date{color:var(--muted);font-size:14px;font-weight:700;} .row .title{font-weight:800;font-size:15.5px;}
+  .row-sub{color:var(--muted);font-size:13.5px;margin-top:6px;max-width:520px;line-height:1.45;}
+  .row-left{flex:1;min-width:220px;}
+  .row-right{display:flex;align-items:center;gap:14px;}
+  .row-price{font-family:'Montserrat';font-weight:900;font-size:18px;color:var(--text);}
+  .row-cta{background:var(--accent);color:#00251f;padding:8px 14px;border-radius:999px;font-weight:900;font-size:12.5px;letter-spacing:0.02em;white-space:nowrap;}
+  .bundle-wrap{max-width:480px;margin:32px auto 0;}
+  .bundle{background:var(--card);border:1px solid var(--accent);border-radius:14px;padding:28px;text-align:center;}
+  .bundle .btag{display:inline-block;background:var(--accent);color:#00251f;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;}
+  .bundle h3{font-size:22px;font-weight:900;margin-bottom:8px;}
+  .bundle p{color:var(--muted);font-size:14.5px;margin:0 0 18px;}
+  .bundle .price{font-family:'Montserrat';font-weight:900;font-size:36px;margin-bottom:14px;}
+  .bundle .register{display:block;background:var(--accent);color:#00251f;text-align:center;padding:12px 18px;border-radius:999px;font-weight:900;font-size:14.5px;}
   .explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
   @media(max-width:720px){.explain-grid{grid-template-columns:1fr;}}
   .explain{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;}
   .explain .etype{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;}
   .explain h3{font-size:18px;font-weight:800;margin-bottom:10px;}
-  .explain p{color:var(--muted);font-size:14.5px;line-height:1.65;margin-bottom:12px;}
-  .explain ul{display:flex;flex-direction:column;gap:6px;font-size:14px;}
-  .explain ul li{padding-left:20px;position:relative;color:var(--text);}
-  .explain ul li::before{content:"·";position:absolute;left:6px;top:-2px;color:var(--accent);font-weight:900;font-size:22px;line-height:1;}
-  .combo-line{text-align:center;color:var(--muted);font-size:14px;margin-top:20px;}
-  .combo-line a{color:var(--accent);font-weight:800;}
+  .explain p{color:var(--muted);font-size:14.5px;line-height:1.65;margin:0;}
+  .signup-notice{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;max-width:680px;margin:0 auto;}
+  .signup-notice p{margin:0;color:var(--text);font-size:14.5px;line-height:1.6;}
+  .signup-notice strong{color:var(--accent);}
+  .signup-notice a{color:var(--accent);font-weight:800;}
+  .wa-float{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,0.35);text-decoration:none;}
+  .wa-float:hover{transform:translateY(-1px);}
   footer{background:#08101e;padding:36px 0 28px;border-top:1px solid var(--border);}
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .foot-row ul{display:flex;gap:18px;flex-wrap:wrap;} .foot-row a{color:var(--muted);font-size:14px;font-weight:700;} .foot-row a:hover{color:var(--accent);}
@@ -98,27 +102,48 @@
     <div class="level">LC Higher Level</div>
     <h1>HL Chemistry</h1>
     <p class="sub">Full course taught by Ben Cullinane, 100% in LC Chemistry.</p>
-    <p style="color:var(--accent);font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-top:14px;">✓ Recording and notes included with every class</p>
+    <p class="rec-line">✓ Recording and notes included with every class</p>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="cards-single">
-      <div class="card">
-        <div class="ctype">Crash Course</div>
+    <div class="schedule-head">
+      <h2>Pick a single class or grab the bundle</h2>
+      <p>Every class includes the recording and digital notes.</p>
+    </div>
+    <div class="schedule-grid">
+      <a class="row" href="https://buy.stripe.com/fZuaEPeyj8bGcqI5kN2ZO2f">
+        <div class="row-left">
+          <div class="date">Fri 29 May, 3pm</div>
+          <div class="title">Chemistry Day 1 Masterclass</div>
+          <div class="row-sub">Half of the HL Chemistry course covered live. Every concept fully explained and understood, with exam paper questions worked through on each topic.</div>
+        </div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+      <a class="row" href="https://buy.stripe.com/aFa28j89V1Ni3Uc28B2ZO2g">
+        <div class="row-left">
+          <div class="date">Sun 31 May, 3pm</div>
+          <div class="title">Chemistry Day 2 Masterclass</div>
+          <div class="row-sub">Remaining HL Chemistry topics covered live. Every concept fully explained and understood, with exam paper questions worked through on each topic.</div>
+        </div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+      <a class="row" href="https://buy.stripe.com/28EcMXdufeA4duMcNf2ZO2h">
+        <div class="row-left">
+          <div class="date">Mon 15 June, 3pm</div>
+          <div class="title">Chemistry Exam Papers</div>
+          <div class="row-sub">Full exam paper coverage of the entire course. Every type of question worked through live.</div>
+        </div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+    </div>
+
+    <div class="bundle-wrap">
+      <div class="bundle">
+        <div class="btag">Best Value</div>
         <h3>HL Chemistry Crash Course</h3>
-        <ul class="meta">
-          <li><b>3 sessions</b></li>
-          <li>15+ hours live</li>
-          <li>Full course + exam papers</li>
-        </ul>
-        <ul class="covers">
-          <li>Atomic structure, bonding, periodic table</li>
-          <li>Stoichiometry, gases and solutions</li>
-          <li>Organic chemistry</li>
-          <li>Volumetric and qualitative analysis</li>
-        </ul>
+        <p>All 3 sessions, 15+ hours live. Full course plus exam papers.</p>
         <div class="price">€50</div>
         <a href="https://buy.stripe.com/eVqaEPgGreA4fCUbJb2ZO21" class="register">Register</a>
       </div>
@@ -128,60 +153,34 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="explain-head">
-      <h2>What's covered in each class</h2>
-    </div>
+    <div class="explain-head"><h2>What's covered in each class</h2></div>
     <div class="explain-grid">
       <div class="explain">
         <div class="etype">Full Course Masterclass</div>
         <h3>Day 1 and Day 2</h3>
-        <p>Two full live days covering every topic on the LC HL Chemistry course. Every concept, every definition, every equation, every mandatory experiment broken down with the exam answering technique. You leave with the entire course locked in and full notes on every section.</p>
-        <ul>
-          <li>Atomic theory, bonding, periodic trends</li>
-          <li>Stoichiometry, moles, gases, solutions</li>
-          <li>Rates, equilibria, acids and bases</li>
-          <li>Organic reactions and mechanisms</li>
-          <li>Every mandatory experiment, step by step</li>
-        </ul>
+        <p>Two full live days covering the entire LC HL Chemistry course. Every concept, definition, equation and mandatory experiment explained until it fully clicks. The understanding built here is what makes the exam paper class and the exam itself feel easy.</p>
       </div>
       <div class="explain">
         <div class="etype">Exam Paper Class</div>
-        <h3>The night before the exam</h3>
-        <p>One full live class the day before the Chemistry exam. We work through every type of question that comes up on the paper. Question by question, you see exactly what the examiner is looking for and the cleanest way to bank the marks.</p>
-        <ul>
-          <li>Short questions and long questions</li>
-          <li>Volumetric and qualitative analysis questions</li>
-          <li>Organic chemistry questions</li>
-          <li>Calculation questions with full method</li>
-          <li>How to handle every section of the paper</li>
-        </ul>
+        <h3>The day before the exam</h3>
+        <p>One full live class working through every type of Chemistry exam question. Short questions, long questions, volumetric and qualitative analysis, organic and calculation questions. You see exactly what the examiner is looking for and the cleanest way to bank the marks.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="schedule-head"><h2>Full schedule</h2><p>Every class includes the recording and digital notes.</p></div>
-    <div class="schedule-grid">
-      <div class="row"><div class="date">Fri 29 May, 3pm</div><div class="title">Chemistry Day 1 Masterclass</div></div>
-      <div class="row"><div class="date">Sun 31 May, 3pm</div><div class="title">Chemistry Day 2 Masterclass</div></div>
-      <div class="row"><div class="date">Mon 15 June, 3pm</div><div class="title">Chemistry Exam Papers</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- After signup notice -->
 <section class="section" style="padding:32px 0;">
-  <div class="wrap" style="max-width:680px;">
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;">
-      <p style="margin:0;color:var(--text);font-size:14.5px;line-height:1.6;"><strong style="color:var(--accent);">After you sign up:</strong> you'll get an email with the WhatsApp group invite and the Zoom link for each class. Didn't get the email? <a href="https://wa.me/353857218498" style="color:var(--accent);font-weight:800;">Message support on WhatsApp</a> straight away.</p>
+  <div class="wrap">
+    <div class="signup-notice">
+      <p><strong>After you sign up:</strong> you'll get an email with the WhatsApp group invite and the Zoom link for each class. Didn't get the email? <a href="https://wa.me/353857218498">Message support on WhatsApp</a> straight away.</p>
     </div>
   </div>
 </section>
 
-<!-- WhatsApp support float -->
-<a href="https://wa.me/353857218498" target="_blank" rel="noopener" aria-label="WhatsApp Support" style="position:fixed;right:16px;bottom:16px;z-index:50;background:#25d366;color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,0.35);text-decoration:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.45 3.42 1.31 4.91L2 22l5.31-1.39c1.44.79 3.06 1.21 4.73 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.86 14.13c-.24.69-1.42 1.32-1.96 1.4-.5.07-1.14.1-1.84-.12-.42-.13-.97-.31-1.66-.6-2.93-1.27-4.84-4.22-4.98-4.41-.15-.19-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.43.27-.29.59-.37.78-.37.2 0 .39.01.56.02.18 0 .42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.49-.1.18-.15.29-.29.45-.15.16-.31.36-.44.49-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.45.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.71-.17 1.4z"/></svg><span>Support</span></a>
+<a class="wa-float" href="https://wa.me/353857218498" target="_blank" rel="noopener" aria-label="WhatsApp Support">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.45 3.42 1.31 4.91L2 22l5.31-1.39c1.44.79 3.06 1.21 4.73 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.86 14.13c-.24.69-1.42 1.32-1.96 1.4-.5.07-1.14.1-1.84-.12-.42-.13-.97-.31-1.66-.6-2.93-1.27-4.84-4.22-4.98-4.41-.15-.19-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.43.27-.29.59-.37.78-.37.2 0 .39.01.56.02.18 0 .42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.49-.1.18-.15.29-.29.45-.15.16-.31.36-.44.49-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.45.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.71-.17 1.4z"/></svg>
+  <span>Support</span>
+</a>
 
 <footer>
   <div class="wrap">
@@ -190,10 +189,10 @@
         <li><a href="/">Home</a></li>
         <li><a href="/hlmaths">HL Maths</a></li>
         <li><a href="/olmaths">OL Maths</a></li>
-        <li><a href="/jcmaths">JC HL Maths</a></li>
         <li><a href="/physics">Physics</a></li>
         <li><a href="/chemistry">Chemistry</a></li>
         <li><a href="/appliedmaths">Applied Maths</a></li>
+        <li><a href="/jcmaths">JC Maths</a></li>
         <li><a href="/one-to-one">Summer Grinds</a></li>
         <li><a href="/refund-policy">Refund Policy</a></li>
       </ul>
