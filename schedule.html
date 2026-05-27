@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crash Course Schedule — Cheze Grinds</title>
+<meta name="description" content="Every Cheze Grinds end of year crash course class in one place. Dates, times, prices, register links." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --brand-navy:#102233; --brand-teal:#0F766E; --bg:#0b1424; --card:#111d36; --border:rgba(255,255,255,0.08); --text:#e6edf6; --muted:#93a4bf; --accent:#2dd4bf; --done:#5b6577; }
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;} html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Lato',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-0.01em;margin:0;} a{color:inherit;text-decoration:none;} ul{list-style:none;padding:0;margin:0;}
+  .nav{background:#fff;position:sticky;top:0;z-index:40;box-shadow:0 1px 0 #eee;}
+  .nav-inner{max-width:1140px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:900;font-size:18px;color:var(--brand-navy);}
+  .nav-logo img{height:36px;width:36px;border-radius:50%;} .nav-logo .teal{color:var(--brand-teal);}
+  .nav-links{display:flex;align-items:center;gap:4px;}
+  .nav-links a{color:var(--brand-navy);font-size:13.5px;font-weight:700;padding:8px 10px;border-radius:6px;white-space:nowrap;}
+  .nav-links a:hover{background:#f1f5f9;}
+  .burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:var(--brand-navy);}
+  @media(max-width:760px){.nav-links{display:none;}.burger{display:inline-flex;}.mobile-menu.open{display:block;}}
+  .mobile-menu{display:none;background:#fff;border-top:1px solid #eee;padding:8px 20px 14px;}
+  .mobile-menu a{display:block;color:var(--brand-navy);font-weight:700;padding:12px 4px;border-bottom:1px solid #f5f5f5;}
+  .mobile-menu a:last-child{border-bottom:0;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;} .section{padding:48px 0;}
+  .hero{text-align:center;padding:64px 0 32px;}
+  .hero h1{font-size:clamp(36px,5.6vw,56px);line-height:1.05;font-weight:900;margin-bottom:14px;}
+  .hero .sub{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto;}
+
+  .group{margin-bottom:36px;}
+  .group h2{font-size:clamp(20px,3vw,26px);font-weight:900;margin-bottom:14px;color:var(--text);}
+  .group .group-sub{color:var(--muted);font-size:14px;margin:-8px 0 14px;}
+
+  .schedule-grid{display:grid;gap:10px;}
+  .row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;transition:border-color .15s,transform .15s;}
+  a.row{text-decoration:none;color:inherit;}
+  a.row:hover{border-color:var(--accent);transform:translateY(-1px);}
+  .row .date{color:var(--muted);font-size:14px;font-weight:700;}
+  .row .title{font-weight:800;font-size:15.5px;margin-top:2px;}
+  .row-left{flex:1;min-width:220px;}
+  .row-right{display:flex;align-items:center;gap:14px;}
+  .row-price{font-family:'Montserrat';font-weight:900;font-size:18px;color:var(--text);}
+  .row-cta{background:var(--accent);color:#00251f;padding:8px 14px;border-radius:999px;font-weight:900;font-size:12.5px;letter-spacing:0.02em;white-space:nowrap;}
+
+  .row.done{opacity:0.55;border-color:rgba(255,255,255,0.04);}
+  .row.done:hover{transform:none;border-color:rgba(255,255,255,0.04);}
+  .row.done .row-cta{background:var(--done);color:#fff;cursor:default;}
+  .row.done .date{color:var(--done);}
+  .row.recording-only .row-cta{background:var(--accent);}
+  .recording-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-left:8px;}
+
+  .legend{display:flex;flex-wrap:wrap;gap:14px 18px;justify-content:center;margin-bottom:24px;color:var(--muted);font-size:13px;}
+  .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+  .legend .dot.live{background:var(--accent);}
+  .legend .dot.done{background:var(--done);}
+  .legend .dot.hlm{background:#2dd4bf;}
+  .legend .dot.olm{background:#60a5fa;}
+  .legend .dot.phys{background:#f59e0b;}
+  .legend .dot.chem{background:#a78bfa;}
+  .legend .dot.jc{background:#f472b6;}
+  .legend .dot.app{background:#34d399;}
+
+  /* Calendar */
+  .cal-wrap{margin-bottom:48px;}
+  .cal-month-title{font-family:'Montserrat';font-weight:900;font-size:22px;text-align:center;margin:24px 0 14px;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px;}
+  .cal-dow{text-align:center;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:8px 4px;}
+  .cal-day{background:#0d1830;border:1px solid rgba(255,255,255,0.04);border-radius:8px;min-height:96px;padding:6px;display:flex;flex-direction:column;gap:4px;}
+  .cal-day.empty{background:transparent;border:0;}
+  .cal-day .dnum{color:var(--muted);font-size:12px;font-weight:800;margin-bottom:2px;}
+  .cal-day.today{outline:2px solid var(--accent);}
+  .cal-event{display:block;padding:4px 6px;border-radius:5px;font-size:10.5px;font-weight:800;line-height:1.25;color:#0b1424;text-decoration:none;}
+  .cal-event.done{opacity:0.55;text-decoration:line-through;}
+  .cal-event.hlm{background:#2dd4bf;}
+  .cal-event.olm{background:#60a5fa;}
+  .cal-event.phys{background:#f59e0b;}
+  .cal-event.chem{background:#a78bfa;}
+  .cal-event.jc{background:#f472b6;}
+  .cal-event.app{background:#34d399;}
+  @media(max-width:720px){
+    .cal-day{min-height:72px;padding:4px;}
+    .cal-event{font-size:9.5px;padding:3px 4px;}
+    .cal-dow{font-size:10px;padding:6px 2px;}
+  }
+
+  footer{background:#08101e;padding:36px 0 28px;border-top:1px solid var(--border);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-row ul{display:flex;gap:18px;flex-wrap:wrap;} .foot-row a{color:var(--muted);font-size:14px;font-weight:700;} .foot-row a:hover{color:var(--accent);}
+  .foot-copy{text-align:center;color:var(--muted);font-size:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="chezelogo.png" alt="" onerror="this.style.display='none'" /><span>Cheze <span class="teal">Grinds</span></span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/hlmaths">HL Maths</a>
+      <a href="/olmaths">OL Maths</a>
+      <a href="/physics">Physics</a>
+      <a href="/chemistry">Chemistry</a>
+      <a href="/appliedmaths">Applied Maths</a>
+      <a href="/jcmaths">JC Maths</a>
+      <a href="/one-to-one">Summer Grinds</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/hlmaths">HL Maths</a>
+    <a href="/olmaths">OL Maths</a>
+    <a href="/physics">Physics</a>
+    <a href="/chemistry">Chemistry</a>
+    <a href="/appliedmaths">Applied Maths</a>
+    <a href="/jcmaths">JC Maths</a>
+    <a href="/one-to-one">Summer Grinds</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Crash Course Schedule</h1>
+    <p class="sub">Every class in one place. Tap any upcoming class to register. Recordings available for classes already done.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+
+    <div class="legend">
+      <span><span class="dot hlm"></span>HL Maths</span>
+      <span><span class="dot olm"></span>OL Maths</span>
+      <span><span class="dot phys"></span>Physics</span>
+      <span><span class="dot chem"></span>Chemistry</span>
+      <span><span class="dot jc"></span>JC Maths</span>
+      <span><span class="dot app"></span>Applied Maths</span>
+      <span><span class="dot done"></span>Class done · recording available</span>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="cal-wrap">
+
+      <div class="cal-month-title">May 2026</div>
+      <div class="cal-grid">
+        <div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-dow">Sun</div>
+
+        <!-- Starting Mon 18 May 2026 -->
+        <div class="cal-day"><div class="dnum">18</div></div>
+        <div class="cal-day"><div class="dnum">19</div></div>
+        <div class="cal-day"><div class="dnum">20</div></div>
+        <div class="cal-day"><div class="dnum">21</div></div>
+        <div class="cal-day"><div class="dnum">22</div></div>
+        <div class="cal-day">
+          <div class="dnum">23</div>
+          <a class="cal-event hlm done" href="https://buy.stripe.com/6oUfZ92PBcrW62k7sV2ZO24">HL P1</a>
+        </div>
+        <div class="cal-day"><div class="dnum">24</div></div>
+
+        <div class="cal-day">
+          <div class="dnum">25</div>
+          <a class="cal-event olm done" href="https://buy.stripe.com/4gMcMXcqb63yaiA5kN2ZO26">OL P1</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">26</div>
+          <a class="cal-event phys done" href="https://buy.stripe.com/aFa3cn4XJ1NigGY00t2ZO2c">Physics Day 1</a>
+        </div>
+        <div class="cal-day today">
+          <div class="dnum">27</div>
+          <a class="cal-event olm" href="https://buy.stripe.com/8x2cMXfCn8bG4Yg00t2ZO27">OL P2 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">28</div>
+          <a class="cal-event phys" href="https://buy.stripe.com/cNi7sD3TFdw04YgeVn2ZO2d">Physics Day 2 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">29</div>
+          <a class="cal-event chem" href="https://buy.stripe.com/fZuaEPeyj8bGcqI5kN2ZO2f">Chem Day 1 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">30</div>
+          <a class="cal-event hlm" href="https://buy.stripe.com/5kQ28j89V1NiduM7sV2ZO25">HL P2 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">31</div>
+          <a class="cal-event chem" href="https://buy.stripe.com/aFa28j89V1Ni3Uc28B2ZO2g">Chem Day 2 · 3pm</a>
+          <a class="cal-event olm" href="https://buy.stripe.com/8x2aEPcqb8bG3UcbJb2ZO2a">OL P1 Exam · 3pm</a>
+        </div>
+      </div>
+
+      <div class="cal-month-title">June 2026</div>
+      <div class="cal-grid">
+        <div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-dow">Sun</div>
+
+        <!-- June 1 is Monday -->
+        <div class="cal-day">
+          <div class="dnum">1</div>
+          <a class="cal-event jc" href="https://buy.stripe.com/aFaeV5bm72RmfCUeVn2ZO23">JC HL Maths · 3pm</a>
+        </div>
+        <div class="cal-day"><div class="dnum">2</div></div>
+        <div class="cal-day"><div class="dnum">3</div></div>
+        <div class="cal-day">
+          <div class="dnum">4</div>
+          <a class="cal-event hlm" href="https://buy.stripe.com/14AeV59dZdw08ascNf2ZO28">HL P1 Exam · 6pm</a>
+        </div>
+        <div class="cal-day"><div class="dnum">5</div></div>
+        <div class="cal-day">
+          <div class="dnum">6</div>
+          <a class="cal-event hlm" href="https://buy.stripe.com/28E7sDeyjgIccqI3cF2ZO29">HL P2 Exam · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">7</div>
+          <a class="cal-event olm" href="https://buy.stripe.com/4gMbIT4XJcrWfCU4gJ2ZO2b">OL P2 Exam · 5pm</a>
+        </div>
+
+        <div class="cal-day"><div class="dnum">8</div></div>
+        <div class="cal-day"><div class="dnum">9</div></div>
+        <div class="cal-day"><div class="dnum">10</div></div>
+        <div class="cal-day"><div class="dnum">11</div></div>
+        <div class="cal-day"><div class="dnum">12</div></div>
+        <div class="cal-day"><div class="dnum">13</div></div>
+        <div class="cal-day"><div class="dnum">14</div></div>
+
+        <div class="cal-day">
+          <div class="dnum">15</div>
+          <a class="cal-event chem" href="https://buy.stripe.com/28EcMXdufeA4duMcNf2ZO2h">Chem Exam · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">16</div>
+          <a class="cal-event phys" href="https://buy.stripe.com/9B6cMXcqbbnS9ewbJb2ZO2e">Physics Exam · 6pm</a>
+        </div>
+        <div class="cal-day"><div class="dnum">17</div></div>
+        <div class="cal-day">
+          <div class="dnum">18</div>
+          <a class="cal-event app" href="https://buy.stripe.com/8x25kv89V77CduM14x2ZO22">Applied Day 1 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">19</div>
+          <a class="cal-event app" href="https://buy.stripe.com/8x25kv89V77CduM14x2ZO22">Applied Day 2 · 3pm</a>
+        </div>
+        <div class="cal-day">
+          <div class="dnum">20</div>
+          <a class="cal-event app" href="https://buy.stripe.com/8x25kv89V77CduM14x2ZO22">Applied Day 3 · 3pm</a>
+        </div>
+        <div class="cal-day"><div class="dnum">21</div></div>
+      </div>
+
+    </div>
+
+    <!-- FULL CHRONOLOGICAL TIMELINE -->
+    <div class="schedule-grid">
+
+      <a class="row done" href="https://buy.stripe.com/6oUfZ92PBcrW62k7sV2ZO24">
+        <div class="row-left"><div class="date">Sat 23 May · DONE</div><div class="title">HL Maths Paper 1 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Buy Recording →</span></div>
+      </a>
+
+      <a class="row done" href="https://buy.stripe.com/4gMcMXcqb63yaiA5kN2ZO26">
+        <div class="row-left"><div class="date">Mon 25 May · DONE</div><div class="title">OL Maths Paper 1 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Buy Recording →</span></div>
+      </a>
+
+      <a class="row done" href="https://buy.stripe.com/aFa3cn4XJ1NigGY00t2ZO2c">
+        <div class="row-left"><div class="date">Tue 26 May · DONE</div><div class="title">HL Physics Day 1 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Buy Recording →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/8x2cMXfCn8bG4Yg00t2ZO27">
+        <div class="row-left"><div class="date">Wed 27 May, 3pm</div><div class="title">OL Maths Paper 2 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/cNi7sD3TFdw04YgeVn2ZO2d">
+        <div class="row-left"><div class="date">Thu 28 May, 3pm</div><div class="title">HL Physics Day 2 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/fZuaEPeyj8bGcqI5kN2ZO2f">
+        <div class="row-left"><div class="date">Fri 29 May, 3pm</div><div class="title">HL Chemistry Day 1 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/5kQ28j89V1NiduM7sV2ZO25">
+        <div class="row-left"><div class="date">Sat 30 May, 3pm</div><div class="title">HL Maths Paper 2 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/aFa28j89V1Ni3Uc28B2ZO2g">
+        <div class="row-left"><div class="date">Sun 31 May, 3pm</div><div class="title">HL Chemistry Day 2 Masterclass</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/8x2aEPcqb8bG3UcbJb2ZO2a">
+        <div class="row-left"><div class="date">Sun 31 May, 3pm</div><div class="title">OL Maths Paper 1 Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/aFaeV5bm72RmfCUeVn2ZO23">
+        <div class="row-left"><div class="date">Mon 1 June, 3pm</div><div class="title">JC HL Maths Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/14AeV59dZdw08ascNf2ZO28">
+        <div class="row-left"><div class="date">Thu 4 June, 6pm</div><div class="title">HL Maths Paper 1 Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/28E7sDeyjgIccqI3cF2ZO29">
+        <div class="row-left"><div class="date">Sat 6 June, 3pm</div><div class="title">HL Maths Paper 2 Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/4gMbIT4XJcrWfCU4gJ2ZO2b">
+        <div class="row-left"><div class="date">Sun 7 June, 5pm</div><div class="title">OL Maths Paper 2 Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/28EcMXdufeA4duMcNf2ZO2h">
+        <div class="row-left"><div class="date">Mon 15 June, 3pm</div><div class="title">HL Chemistry Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/9B6cMXcqbbnS9ewbJb2ZO2e">
+        <div class="row-left"><div class="date">Tue 16 June, 6pm</div><div class="title">HL Physics Exam Papers</div></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+      </a>
+
+      <a class="row" href="https://buy.stripe.com/8x25kv89V77CduM14x2ZO22">
+        <div class="row-left"><div class="date">Thu 18 to Sat 20 June, 3pm</div><div class="title">HL Applied Maths 3 Day Crash Course</div></div>
+        <div class="row-right"><div class="row-price">€50</div><span class="row-cta">Register →</span></div>
+      </a>
+
+    </div>
+
+    <!-- BUNDLES -->
+    <div class="group" style="margin-top:48px;">
+      <h2>Bundles</h2>
+      <div class="group-sub">Grab the full subject for the best value.</div>
+      <div class="schedule-grid">
+        <a class="row" href="https://buy.stripe.com/4gM28jeyj2RmcqI14x2ZO1Y">
+          <div class="row-left"><div class="date">All 4 sessions</div><div class="title">HL Maths Crash Course Bundle</div></div>
+          <div class="row-right"><div class="row-price">€70</div><span class="row-cta">Register →</span></div>
+        </a>
+        <a class="row" href="https://buy.stripe.com/bJebITcqb4Zu62k6oR2ZO1Z">
+          <div class="row-left"><div class="date">All 4 sessions</div><div class="title">OL Maths Crash Course Bundle</div></div>
+          <div class="row-right"><div class="row-price">€70</div><span class="row-cta">Register →</span></div>
+        </a>
+        <a class="row" href="https://buy.stripe.com/dRm28jai33VqbmE28B2ZO20">
+          <div class="row-left"><div class="date">All 3 sessions</div><div class="title">HL Physics Crash Course Bundle</div></div>
+          <div class="row-right"><div class="row-price">€50</div><span class="row-cta">Register →</span></div>
+        </a>
+        <a class="row" href="https://buy.stripe.com/eVqaEPgGreA4fCUbJb2ZO21">
+          <div class="row-left"><div class="date">All 3 sessions</div><div class="title">HL Chemistry Crash Course Bundle</div></div>
+          <div class="row-right"><div class="row-price">€50</div><span class="row-cta">Register →</span></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/schedule">Schedule</a></li>
+        <li><a href="/hlmaths">HL Maths</a></li>
+        <li><a href="/olmaths">OL Maths</a></li>
+        <li><a href="/physics">Physics</a></li>
+        <li><a href="/chemistry">Chemistry</a></li>
+        <li><a href="/appliedmaths">Applied Maths</a></li>
+        <li><a href="/jcmaths">JC Maths</a></li>
+        <li><a href="/one-to-one">Summer Grinds</a></li>
+        <li><a href="/refund-policy">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="foot-copy">Cheze Grinds · chezegrinds.com</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
