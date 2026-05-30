@@ -256,6 +256,29 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   });
 
+// Auto-mark past classes as DONE
+  (function(){
+    const today=new Date();today.setHours(0,0,0,0);
+    const M={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+    document.querySelectorAll('.row').forEach(r=>{
+      if(r.classList.contains('done'))return;
+      const d=r.querySelector('.date');if(!d)return;
+      const t=d.textContent;
+      if(/done/i.test(t))return;
+      const m=t.match(/(\d{1,2})\s+([A-Za-z]{3,})/);if(!m)return;
+      const day=parseInt(m[1],10);
+      const mon=M[m[2].toLowerCase().slice(0,3)];
+      if(mon===undefined||isNaN(day))return;
+      const rd=new Date(2026,mon,day);rd.setHours(0,0,0,0);
+      if(rd>=today)return;
+      r.classList.add('done');
+      const dayMatch = t.match(/^([A-Za-z]{3})\s+(\d{1,2}\s+[A-Za-z]+)/);
+      d.textContent = dayMatch ? (dayMatch[1]+' '+dayMatch[2]+' \u00b7 DONE') : (t.replace(/,.*$/,'')+' \u00b7 DONE');
+      const cta = r.querySelector('.row-cta');
+      if(cta) cta.textContent='Buy Recording + Notes \u2192';
+    });
+  })();
+
   // Next class banner
   (function(){
     const today=new Date();today.setHours(0,0,0,0);

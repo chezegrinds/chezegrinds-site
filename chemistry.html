@@ -43,6 +43,8 @@
   .row-right{display:flex;align-items:center;gap:14px;}
   .row-price{font-family:'Montserrat';font-weight:900;font-size:18px;color:var(--text);}
   .row-cta{background:var(--accent);color:#00251f;padding:8px 14px;border-radius:999px;font-weight:900;font-size:12.5px;letter-spacing:0.02em;white-space:nowrap;}
+  .row.done{opacity:0.65;}
+  .row.done .row-cta{background:#5b6577;color:#fff;}
   .bundle-wrap{max-width:480px;margin:32px auto 0;}
   .bundle{background:var(--card);border:1px solid var(--accent);border-radius:14px;padding:28px;text-align:center;}
   .bundle .btag{display:inline-block;background:var(--accent);color:#00251f;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;}
@@ -66,6 +68,12 @@
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .foot-row ul{display:flex;gap:18px;flex-wrap:wrap;} .foot-row a{color:var(--muted);font-size:14px;font-weight:700;} .foot-row a:hover{color:var(--accent);}
   .foot-copy{text-align:center;color:var(--muted);font-size:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+
+  .next-class-bar{display:none;background:var(--accent);color:#00251f;padding:10px 14px;font-weight:800;font-size:13.5px;text-align:center;}
+  .next-class-bar.tomorrow{background:#ffb547;}
+  .ncb-inner{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:center;max-width:1080px;margin:0 auto;}
+  .ncb-when{font-weight:900;letter-spacing:0.04em;}
+  .ncb-cta{background:#00251f;color:#fff;padding:6px 14px;border-radius:999px;font-weight:900;font-size:12px;text-decoration:none;letter-spacing:0.04em;}
 </style>
 </head>
 <body>
@@ -99,6 +107,15 @@
   </div>
 </header>
 
+<div class="next-class-bar" id="nextClassBar">
+  <div class="ncb-inner">
+    <span class="ncb-when" id="nextClassWhen"></span>
+    <span id="nextClassTitle"></span>
+    <a class="ncb-cta" id="nextClassCta" href="#">Register →</a>
+  </div>
+</div>
+
+
 <section class="hero">
   <div class="wrap">
     <div class="level">LC Higher Level</div>
@@ -115,13 +132,13 @@
       <p>Every class includes the recording and digital notes.</p>
     </div>
     <div class="schedule-grid">
-      <a class="row" href="https://buy.stripe.com/fZuaEPeyj8bGcqI5kN2ZO2f">
+      <a class="row done" href="https://buy.stripe.com/fZuaEPeyj8bGcqI5kN2ZO2f">
         <div class="row-left">
-          <div class="date">Fri 29 May, 3pm</div>
+          <div class="date">Fri 29 May · DONE</div>
           <div class="title">Chemistry Day 1 Masterclass</div>
           <div class="row-sub">Half of the HL Chemistry course covered live. Every concept fully explained and understood, with exam paper questions worked through on each topic.</div>
         </div>
-        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Register →</span></div>
+        <div class="row-right"><div class="row-price">€20</div><span class="row-cta">Buy Recording + Notes →</span></div>
       </a>
       <a class="row" href="https://buy.stripe.com/aFa28j89V1Ni3Uc28B2ZO2g">
         <div class="row-left">
@@ -208,6 +225,65 @@
   document.getElementById('burger').addEventListener('click', () => {
     document.getElementById('mobileMenu').classList.toggle('open');
   });
+
+// Auto-mark past classes as DONE
+  (function(){
+    const today=new Date();today.setHours(0,0,0,0);
+    const M={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+    document.querySelectorAll('.row').forEach(r=>{
+      if(r.classList.contains('done'))return;
+      const d=r.querySelector('.date');if(!d)return;
+      const t=d.textContent;
+      if(/done/i.test(t))return;
+      const m=t.match(/(\d{1,2})\s+([A-Za-z]{3,})/);if(!m)return;
+      const day=parseInt(m[1],10);
+      const mon=M[m[2].toLowerCase().slice(0,3)];
+      if(mon===undefined||isNaN(day))return;
+      const rd=new Date(2026,mon,day);rd.setHours(0,0,0,0);
+      if(rd>=today)return;
+      r.classList.add('done');
+      const dayMatch = t.match(/^([A-Za-z]{3})\s+(\d{1,2}\s+[A-Za-z]+)/);
+      d.textContent = dayMatch ? (dayMatch[1]+' '+dayMatch[2]+' \u00b7 DONE') : (t.replace(/,.*$/,'')+' \u00b7 DONE');
+      const cta = r.querySelector('.row-cta');
+      if(cta) cta.textContent='Buy Recording + Notes \u2192';
+    });
+  })();
+
+  // Next class banner
+  (function(){
+    const today=new Date();today.setHours(0,0,0,0);
+    const M={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+    let next=null,nextRow=null;
+    document.querySelectorAll('.row').forEach(r=>{
+      if(r.classList.contains('done'))return;
+      const d=r.querySelector('.date');if(!d)return;
+      const t=d.textContent;if(/done/i.test(t))return;
+      const m=t.match(/(\d{1,2})\s+([A-Za-z]{3,})/);if(!m)return;
+      const day=parseInt(m[1],10);
+      const mon=M[m[2].toLowerCase().slice(0,3)];
+      if(mon===undefined||isNaN(day))return;
+      const rd=new Date(2026,mon,day);rd.setHours(0,0,0,0);
+      if(rd<today)return;
+      if(!next||rd<next){next=rd;nextRow=r;}
+    });
+    const bar=document.getElementById('nextClassBar');if(!bar)return;
+    if(!next||!nextRow)return;
+    const tEl=nextRow.querySelector('.title');
+    const title=tEl?tEl.textContent.trim():'';
+    let href=nextRow.getAttribute('href')||'';
+    if(!href){const reg=document.querySelector('.register, .row[href], a.bundle, .b-cta');if(reg)href=reg.getAttribute('href')||'';}
+    const diff=Math.round((next-today)/86400000);
+    let when;let cls='';
+    if(diff===0){when='Next class TODAY';}
+    else if(diff===1){when='Next class TOMORROW';cls='tomorrow';}
+    else{when='Next class in '+diff+' days';}
+    document.getElementById('nextClassWhen').textContent=when;
+    document.getElementById('nextClassTitle').textContent=title;
+    const cta=document.getElementById('nextClassCta');
+    if(href){cta.href=href;}else{cta.style.display='none';}
+    if(cls)bar.classList.add(cls);
+    bar.style.display='block';
+  })();
 </script>
 
 </body>
