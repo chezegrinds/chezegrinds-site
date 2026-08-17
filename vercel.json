@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://www.exceedmaths.ie/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.mp4",
